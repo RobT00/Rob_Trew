@@ -40,8 +40,13 @@ def polynomial_design_matrix(x, order=1):
     
     for p in range (0, order+1):
         for i in range (0, x.size):
-            X[i,p] = 1*(x**p)
-            print (X[i,p])
+            X[i,p] = 1*(x[i]**p)
+#            if i < 3:
+#              print ("i: ", i)
+#              print ("x[i]: ", x[i])
+#              print ("p: ", p)
+#              print ("X[i,p]: ", X[i,p])
+#    print(X)
     return X
 
 

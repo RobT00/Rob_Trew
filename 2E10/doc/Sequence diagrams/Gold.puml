@@ -1,0 +1,37 @@
+@startuml
+!pragma teoz true
+title Gold challenge sequence diagram
+participant "Buggy 1" as b1 #f44
+participant Station as s #44f
+participant "Buggy 2" as b2 #4f4
+note over s #fff: Ask user the number of buggies used\n\
+and the number of laps to go [➔n]
+note over b1, b2 #fff: Buggies in parking lot, stopped
+loop n times
+    group Buggy 1 lap
+        s->b1: GO
+        s<-b1: GOING
+        s<->b1: Under gantry 1...
+        s<->b1: Under gantry 2...
+        s<-b1: GANTRY3
+        s->b1: STOP
+        s<-b1: STOPPED
+    end
+    group Buggy 2 lap
+        s->b2: GO
+        s<-b2: GOING
+        s<->b2: Under gantry 2...
+        s<->b2: Under gantry 1...
+        s->b2: PARK
+        s<-b2: PARKED
+    end
+end
+group Buggy 1 park
+    s->b1: GO
+    s<-b1: GOING
+    s<->b1: Under gantry 1...
+    s<->b1: Under gantry 2...
+    s->b1: PARK
+    s<-b1: PARKED
+end
+@enduml

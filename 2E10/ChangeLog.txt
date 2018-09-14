@@ -1,0 +1,88 @@
+#WEEK 3
+
+FUNCTIONALITY ADDED: Simple hashmap for storing command handlers
+BY WHO: Aron
+
+
+#WEEK 4
+
+FUNCTIONALITY ADDED: Communication framework on the PC side
+BY WHO: Rob
+FUNCTIONALITY ADDED: Communication framework on the Arduino side
+BY WHO: Eoin
+FUNCTIONALITY ADDED: Motor control class
+BY WHO: Alexandra
+FUNCTIONALITY ADDED: Initial buggy data structure and simple commands
+BY WHO: Aron
+
+FUNCTIONALITY CHANGED: Arduino HashMap now supports both Strings and const char*s
+BY WHO: Aron
+
+
+#WEEK 5
+
+FUNCTIONALITY ADDED: Gantry detection
+BY WHO: Eoin and Alexandra
+FUNCTIONALITY ADDED: Handling gantries on the C# side
+BY WHO: Rob
+FUNCTIONALITY ADDED: Arduino Buggy coordination class
+BY WHO: Aron
+
+
+#WEEK 6
+
+FUNCTIONALITY ADDED: Ultrasonic obstacle detection
+BY WHO: Eoin, Alexandra, Aron
+FUNCTIONALITY ADDED: Parking
+BY WHO: Eoin, Rob, Alexandra, Aron
+FUNCTIONALITY ADDED: Full Wizzard of Oz control
+BY WHO: Rob, Eoin, Alexandra, Aron
+
+
+#WEEK 7
+
+FUNCTIONALITY ADDED: Began work on the Gold challenge
+BY WHO: Rob
+FUNCTIONALITY FIXED: Ultrasonic
+BY WHO: Aron
+
+
+#WEEK 8
+
+FUNCTIONALITY ADDED: Finished Gold challange
+BY WHO: Rob
+FUNCTIONALITY FIXED: Timings
+BY WHO: Aron
+FUNCTIONALITY FIXED: Communication
+BY WHO: Rob, Aron, Eoin
+
+
+#WEEK 9
+
+FUNCTIONALITY ADDED: Station repeats command until buggy acknowledges receipt
+BY WHO: Rob, Aron
+FUNCTIONALITY ADDED: Station pings Buggy to ensure it is online
+BY WHO: Rob, Aron
+FUNCTIONALITY ADDED: Improved robustness
+BY WHO: Rob, Aron
+
+
+#Week 10
+
+FUNCTIONALITY ADDED: Colour printing on Station
+BY WHO: Rob, Aron
+FUNCTIONALITY ADDED: Optional LED lights
+BY WHO: Aron
+FUNCTIONALITY ADDED: Station uses regular expressions to interpret commands
+BY WHO: Aron
+
+FUNCTIONALITY FIXED: Improved detection of buggy going offline. Using `Task`s to handle commands in a separate thread pool
+BY WHO: Rob, Aron
+
+
+#WEEK 11
+
+FUNCTIONALITY FIXED: Code clarity and commenting
+BY WHO: Aron
+FUNCTIONALITY FIXED: Pins and timings
+BY WHO: Aron

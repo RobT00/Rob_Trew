@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1457486506 source:h:\google drive\1e3\coding\self\adv_calc_date\adv_calc_date.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cmath>
+
+1457552926 source:c:\google drive\1e3\coding\self\adv_calc_date\adv_calc_date.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cmath>
+

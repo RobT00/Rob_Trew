@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1458610645 source:h:\google drive\1e3\coding\self\mcq\mcq.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	<string>
+
+1458610645 source:c:\google drive\1e3\coding\self\mcq\mcq.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	<string>
+

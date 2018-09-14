@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1455550315 source:c:\google drive\1e3\coding\self\investment\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cmath>
+
+1455550742 source:h:\google drive\1e3\coding\self\investment\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cmath>
+
+1455800946 source:h:\google drive\1e3\coding\self\investment\investment.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cmath>
+

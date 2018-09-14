@@ -1,0 +1,13 @@
+YOU DIED!!!
+Race: 
+Human
+
+Bag: 
+Gold: 10
+Potions: 1
+Bow: No
+Sword: No
+Staff: No
+
+Kills: 
+0

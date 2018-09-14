@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Character">
+    <Position X="13" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAgAAAAwAAAAAAAAAAAAAEAAAAACAAAAAACgA=</HashCode>
+      <FileName>character.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Elf">
+    <Position X="6.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>elf.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Human">
+    <Position X="6.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>human.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory">
+    <Position X="3" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAAQAACgAAAAACAAAAAAAAAEAAAgAACkA=</HashCode>
+      <FileName>inventory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Inventory_data">
+    <Position X="3" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAAQAAAAACAAAAAAAEIgAQAABgAAAAIAACAgIgAAA=</HashCode>
+      <FileName>inventory_data.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPC">
+    <Position X="11.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgACAAgABQAAAEBAAAAAEAEABAAAASIAAAAAAAAgA=</HashCode>
+      <FileName>npc.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NPC_data">
+    <Position X="11.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAIAAQA=</HashCode>
+      <FileName>npc_data.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgACAAgABQAAAEBAAAAAEAAABAAAASIAAAgQAAAgA=</HashCode>
+      <FileName>player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player_data">
+    <Position X="4.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAACAAIAAAA=</HashCode>
+      <FileName>player_data.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Races">
+    <Position X="9" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQgCCAAAADQAAAFBEAAEAEAAIhAIAAAIAQDAAIAQAA=</HashCode>
+      <FileName>Races.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Story">
+    <Position X="13" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEABAAAEIAIQAAAgBAAAAAACAgAAgIICBAAAABAAAI=</HashCode>
+      <FileName>story.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Troll">
+    <Position X="6.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>troll.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Wizard">
+    <Position X="6.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>wizard.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

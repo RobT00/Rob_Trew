@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1458768395 source:h:\google drive\1e3\coding\self\phone_bill\phone_bill.cpp
+	<iostream>
+	<fstream>
+	<iomanip>
+	<string>
+

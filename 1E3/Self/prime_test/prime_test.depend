@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1456280599 source:h:\google drive\1e3\coding\self\prime_test\prime_test.cpp
+	<iostream>
+	<cmath>
+	<iomanip>
+	<string>
+

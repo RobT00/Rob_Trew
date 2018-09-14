@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1457482578 source:h:\google drive\1e3\coding\self\daynumber_date\daynumber_date.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<cmath>
+
+1457479510 source:h:\google drive\1e3\coding\self\daynumber_date\test.cpp
+	<iostream>
+	<string>
+

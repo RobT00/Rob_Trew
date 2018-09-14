@@ -1,0 +1,6 @@
+You awake in a clearing in a forest. There are three paths ahead of you, "left", "right" and "ahead".
+The "left" path looks winding and appears to lead deeper into the forest.
+The "right" path is straight and you can see a long way down it. There looks to be a light at the end.
+The path "ahead" slopes downwards. It seems to lead into a cavern.
+
+Which path would you like to take?

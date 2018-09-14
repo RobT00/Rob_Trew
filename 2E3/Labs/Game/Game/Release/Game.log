@@ -1,0 +1,17 @@
+﻿  character.cpp
+  elf.cpp
+elf.cpp(9): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  human.cpp
+  Inventory.cpp
+  Main.cpp
+  node.cpp
+  npc.cpp
+  Story.cpp
+  troll.cpp
+  wizard.cpp
+  Generating code
+h:\google drive\sf\2e3\labs\game (1)\game\elf.cpp(34): warning C4717: 'Elf::print': recursive on all control paths, function will cause runtime stack overflow
+  All 15 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Game.vcxproj -> H:\Google Drive\SF\2E3\Labs\Game (1)\Release\Game.exe
+  Game.vcxproj -> H:\Google Drive\SF\2E3\Labs\Game (1)\Release\Game.pdb (Full PDB)

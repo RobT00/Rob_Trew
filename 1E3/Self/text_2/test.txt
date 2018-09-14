@@ -1,0 +1,18 @@
+1E3 is concerned with loop array function variable and so on
+the first exam question will test loop
+the next two will test function the last one array
+array is a set of variables of same type
+use for loop to process array
+array function takes in array and size
+function can return a value or function can print or update array element
+variable stores value of size of array
+loop allows you to do same thing many times
+while loop for going until you notice you reach the end
+for loop for doing something a predictable number of times
+loop control variable often i is used to control the for loop
+if statement allows branching one for true and one for false
+boolean conditions are used in if statement while loop
+bool variable often called a flag
+up till now we have used array to deal with problems of known size
+Often we want to use array but we dont know in advance how many students employees words there will be
+XXX

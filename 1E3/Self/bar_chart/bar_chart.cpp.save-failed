@@ -1,0 +1,28 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main()
+{
+	const int SIZE = 70;
+	int i;
+	int nums[SIZE];
+	ifstream data;
+
+	data.open ("P9adata.txt");
+
+	for (i = 0; i < SIZE; i++)
+		data >> nums[i];
+
+	data.close();
+
+	cout << "The numbers are: " << endl;
+
+	for (i = 0; i < SIZE; i++)
+		cout << nums[i] << endl;
+
+    cout << nums[7] << "\t" << nums[60] << "\t" << nums[68] << endl;
+
+	return 0;
+}

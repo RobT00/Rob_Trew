@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1455576520 source:h:\google drive\1e3\coding\self\fibonacci1\main.cpp
+	<iostream>
+	<iomanip>
+	<cmath>
+	<string>
+
+1455801170 source:c:\google drive\1e3\coding\self\fibonacci1\fibonacci1.cpp
+	<iostream>
+	<iomanip>
+	<cmath>
+	<string>
+

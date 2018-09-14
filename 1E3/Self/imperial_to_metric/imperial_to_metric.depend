@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1453655880 source:h:\google drive\1e3\coding\self\imperial_to_metric\main.cpp
+	<iostream>
+	<stdio.h>
+	<math.h>
+
+1453655880 source:c:\google drive\1e3\coding\self\imperial_to_metric\main.cpp
+	<iostream>
+	<stdio.h>
+	<math.h>
+

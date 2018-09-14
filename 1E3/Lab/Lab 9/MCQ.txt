@@ -1,0 +1,5 @@
+    a b c d e a b c d e a b c d e a b c d e
+100 a b c d d a b c e x a b x d e b b b d x
+101 a b c d e a b c d x a x c d e a b c d e
+110 a b c d e a b b b b a b c d e x x x x e
+-1

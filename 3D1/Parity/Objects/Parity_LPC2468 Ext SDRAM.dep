@@ -1,0 +1,3 @@
+Dependencies for Project 'Parity', Target 'LPC2468 Ext SDRAM': (DO NOT MODIFY !)
+F (.\Parity.s)(0x59E004BD)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include-IC:\Keil_v5\ARM\INC\Philips--pd "__UVISION_VERSION SETA 524"--list .\listings\parity.lst --xref -o .\objects\parity.o --depend .\objects\parity.d)
+F (..\libcs1021\libcs1021.lib)(0x4C553688)()

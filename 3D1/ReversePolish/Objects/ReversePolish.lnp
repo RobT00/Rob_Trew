@@ -1,0 +1,7 @@
+--cpu ARM7TDMI
+".\objects\reversepolish.o"
+"..\libcs1021\libcs1021.lib"
+--library_type=microlib --strict --scatter ".\Objects\ReversePolish.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\ReversePolish.map" -o .\Objects\ReversePolish.axf

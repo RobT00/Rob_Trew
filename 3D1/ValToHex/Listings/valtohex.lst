@@ -1,0 +1,153 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Start of file ValToHex.s
+    2 00000000         ;
+    3 00000000         ; Copyright 2017 University of Dublin. All Rights Reserv
+                       ed.
+    4 00000000         ;
+    5 00000000         ; Design and write an ARM assembly language program to 
+    6 00000000         ; convert a 32 bit unsigned value stored in r1
+    7 00000000         ; to it's hexadecimal ASCII string representation.
+    8 00000000         ; Store the resulting string beginning at address 
+    9 00000000         ; 0xA1000400. Your answer should contain 8 characters
+   10 00000000         ; including leading zeros where appropriate, and
+   11 00000000         ; should use uppercase 'A'-'F'.
+   12 00000000         
+   13 00000000                 AREA             ValToHex, CODE, READONLY
+   14 00000000                 IMPORT           main
+   15 00000000                 EXPORT           start
+   16 00000000         start
+   17 00000000         
+   18 00000000 E59F103C        LDR              r1, =0xFEED1234
+   19 00000004         
+   20 00000004         ; Changes above this line are discarded by CODEMARK.
+   21 00000004         ; Enter your solution between dashed lines only.
+   22 00000004         ; ARM syntax requires instructions to be indented by
+   23 00000004         ; at least one space or tab.
+   24 00000004         ; -------------- start cut ------------------------
+   25 00000004 E59F003C        LDR              r0, =0xA1000400
+   26 00000008 E3A0201C        LDR              r2, =28
+   27 0000000C         ;LDR r4, =0
+   28 0000000C EA000007        B                loop
+   29 00000010 E2522004 
+                       wh1     SUBS             r2, #0x4
+   30 00000014 E3530009        CMP              r3, #0x9
+   31 00000018 2A000001        BCS              endif1
+   32 0000001C E2833030        ADD              r3, #0x30
+   33 00000020 EA000001        B                hold
+   34 00000024 E2833040 
+                       endif1  ADD              r3, #0x40
+   35 00000028 E2433009        SUB              r3, #0x9
+   36 0000002C E4C03001 
+                       hold    STRB             r3, [r0], #1
+   37 00000030         ;ADD r4, #1
+   38 00000030 E1A03231 
+                       loop    MOV              r3, r1, LSR r2
+   39 00000034 E203300F        AND              r3, r3, #0xF
+   40 00000038 E3520000        CMP              r2, #0
+   41 0000003C AAFFFFF3        BGE              wh1
+   42 00000040         ; -------------- end cut --------------------------
+   43 00000040         ; Changes below this line are discarded by CODEMARK.
+   44 00000040         ; Enter your solution between dashed lines only.
+   45 00000040         
+   46 00000040 EAFFFFFE 
+                       stop    B                stop
+   47 00000044                 END
+              FEED1234 
+              A1000400 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\valtohex.d -o.\objects\valtohex.o -ID:\Utilities\Keil\ARM\RV31\INC -ID:\
+Utilities\Keil\ARM\CMSIS\Include -ID:\Utilities\Keil\ARM\INC\Philips --predefin
+e="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VERSIO
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+N SETA 524" --predefine="NO_CLOCK_SETUP SETA 1" --predefine="NO_EMC_SETUP SETA 
+1" --predefine="RAM_INTVEC SETA 1" --predefine="RAM_MODE SETA 1" --predefine="R
+EMAP SETA 1" --list=.\listings\valtohex.lst ValToHex.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ValToHex 00000000
+
+Symbol: ValToHex
+   Definitions
+      At line 13 in file ValToHex.s
+   Uses
+      None
+Comment: ValToHex unused
+endif1 00000024
+
+Symbol: endif1
+   Definitions
+      At line 34 in file ValToHex.s
+   Uses
+      At line 31 in file ValToHex.s
+Comment: endif1 used once
+hold 0000002C
+
+Symbol: hold
+   Definitions
+      At line 36 in file ValToHex.s
+   Uses
+      At line 33 in file ValToHex.s
+Comment: hold used once
+loop 00000030
+
+Symbol: loop
+   Definitions
+      At line 38 in file ValToHex.s
+   Uses
+      At line 28 in file ValToHex.s
+Comment: loop used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 16 in file ValToHex.s
+   Uses
+      At line 15 in file ValToHex.s
+Comment: start used once
+stop 00000040
+
+Symbol: stop
+   Definitions
+      At line 46 in file ValToHex.s
+   Uses
+      At line 46 in file ValToHex.s
+Comment: stop used once
+wh1 00000010
+
+Symbol: wh1
+   Definitions
+      At line 29 in file ValToHex.s
+   Uses
+      At line 41 in file ValToHex.s
+Comment: wh1 used once
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 14 in file ValToHex.s
+   Uses
+      None
+Comment: main unused
+1 symbol
+348 symbols in table

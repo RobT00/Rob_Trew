@@ -1,0 +1,198 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Start of file Hamming.s
+    2 00000000         ;
+    3 00000000         ; Copyright 2017 University of Dublin. All Rights Reserv
+                       ed.
+    4 00000000         ;
+    5 00000000         ; Design and write an assembly language program that 
+    6 00000000         ; generates a 12-bit Hamming Code in R0 from an 8-bit va
+                       lue in R1.
+    7 00000000         ; 
+    8 00000000                 AREA             Hamming, CODE, READONLY
+    9 00000000                 IMPORT           main
+   10 00000000                 EXPORT           start
+   11 00000000         start
+   12 00000000         
+   13 00000000 E3A010AC        LDR              r1, =0xAC
+   14 00000004         
+   15 00000004         ; Changes above this line are discarded by CODEMARK.
+   16 00000004         ; Enter your solution between dashed lines only.
+   17 00000004         ; ARM syntax requires instructions to be indented by
+   18 00000004         ; at least one space or tab.
+   19 00000004         ; -------------- start cut ------------------------
+   20 00000004         ;c0 in 0, calculated on bits 2, 4, 6, 8, 10
+   21 00000004         ;c1 in 1, calculated on bits 2, 5, 6, 9, 10
+   22 00000004         ;c2 in 3, calculated on bits 4, 5, 6, 11
+   23 00000004         ;c3 in 7, calculated on bits 8, 9, 10, 11
+   24 00000004         ;0xAC == 10101100
+   25 00000004         ;-> 1010x110x0xx
+   26 00000004         ;c0 -> (0, 0, 1, 0, 0) => c0 = 1
+   27 00000004         ;c1 -> (0, 1, 1, 1, 0) => c1 = 1
+   28 00000004         ;c2 -> (0, 1, 1, 1) => c2 = 1
+   29 00000004         ;c3 -> (0, 1, 0, 1) => c2 = 0
+   30 00000004         
+   31 00000004         ;Get all needed bits: 2, 4, 5, 6, 8, 9, 10, 11
+   32 00000004         ;Actually, need: 0, 1, 2, 3, 4, 5, 6, 7
+   33 00000004         ;0 -> 2
+   34 00000004         ;1 -> 4
+   35 00000004         ;2 -> 5
+   36 00000004         ;3 -> 6
+   37 00000004         ;4 -> 8
+   38 00000004         ;5 -> 9
+   39 00000004         ;6 -> 10
+   40 00000004         ;7 -> 11
+   41 00000004         ;LDR r0, =1
+   42 00000004 E2012001        AND              r2, r1, #0x1 ;LSB (0)
+   43 00000008         ;MOV r0, r0, LSL #1
+   44 00000008 E1A030A1        MOV              r3, r1, LSR #1
+   45 0000000C E2033001        AND              r3, r3, #0x1 ; (1)
+   46 00000010         ;MOV r3, r3, LSR #1; (1)
+   47 00000010         ;MOV r0, r0, LSL #1
+   48 00000010 E1A04121        MOV              r4, r1, LSR #2
+   49 00000014 E2044001        AND              r4, r4, #0x1 ; (2)
+   50 00000018         ;MOV r3, r3, LSR #2; (2)
+   51 00000018         ;MOV r0, r0, LSL #1
+   52 00000018 E1A051A1        MOV              r5, r1, LSR #3
+   53 0000001C E2055001        AND              r5, r5, #0x1 ; (3)
+   54 00000020         ;MOV r3, r3, LSR #3; (3)
+   55 00000020         ;MOV r0, r0, LSL #1
+   56 00000020 E1A06221        MOV              r6, r1, LSR #4
+   57 00000024 E2066001        AND              r6, r6, #0x1 ; (4)
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   58 00000028         ;MOV r3, r3, LSR #4; (4)
+   59 00000028         ;MOV r0, r0, LSL #1
+   60 00000028 E1A072A1        MOV              r7, r1, LSR #5
+   61 0000002C E2077001        AND              r7, r7, #0x1 ; (5)
+   62 00000030         ;MOV r3, r3, LSR #5; (5)
+   63 00000030         ;MOV r0, r0, LSL #1
+   64 00000030 E1A08321        MOV              r8, r1, LSR #6
+   65 00000034 E2088001        AND              r8, r8, #0x1 ; (6)
+   66 00000038         ;MOV r3, r3, LSR #6; (6)
+   67 00000038         ;MOV r0, r0, LSL #1
+   68 00000038 E1A093A1        MOV              r9, r1, LSR #7
+   69 0000003C E2099001        AND              r9, r9, #0x1 ;MSB (7)
+   70 00000040         ;MOV r3, r3, LSR #7; (7)
+   71 00000040         
+   72 00000040         ;Getting c0
+   73 00000040 E0220003        EOR              r0, r2, r3  ;(0), (1) = 0
+   74 00000044 E025A006        EOR              r10, r5, r6 ;(3), (4) = 1
+   75 00000048 E02AB008        EOR              r11, r10, r8 ;1, (6) = 1
+   76 0000004C E02B0000        EOR              r0, r11, r0 ;0, 1 = 1, c0
+   77 00000050         
+   78 00000050         ;Getting c1
+   79 00000050 E022A004        EOR              r10, r2, r4 ;(0), (2) = 1
+   80 00000054 E025B007        EOR              r11, r5, r7 ;(3), (5) = 0
+   81 00000058 E02BB008        EOR              r11, r11, r8 ;0, (6) = 0
+   82 0000005C E02BA00A        EOR              r10, r11, r10 ;0, 1 = 1, c1
+   83 00000060         
+   84 00000060         ;Getting c2
+   85 00000060 E023B004        EOR              r11, r3, r4 ;(0), (1) = 1
+   86 00000064 E025C009        EOR              r12, r5, r9 ;(1), (1) = 0
+   87 00000068 E02CB00B        EOR              r11, r12, r11 ;0, 1 = 1, c2
+   88 0000006C         
+   89 0000006C         ;Getting c3
+   90 0000006C E026C007        EOR              r12, r6, r7 ;(0), (1) = 1
+   91 00000070 E0282009        EOR              r2, r8, r9  ;(0), (1) = 1
+   92 00000074 E022C00C        EOR              r12, r2, r12 ;1, 1 = 0, c3
+   93 00000078         
+   94 00000078         ;Resetting r2
+   95 00000078 E2012001        AND              r2, r1, #0x1
+   96 0000007C         
+   97 0000007C E1A09089        MOV              r9, r9, LSL #1 ; (11)
+   98 00000080 E0899008        ADD              r9, r9, r8  ; (10)
+   99 00000084 E1A09089        MOV              r9, r9, LSL #1
+  100 00000088 E0899007        ADD              r9, r9, r7  ; (9)
+  101 0000008C E1A09089        MOV              r9, r9, LSL #1
+  102 00000090 E0899006        ADD              r9, r9, r6  ; (8)
+  103 00000094 E1A09089        MOV              r9, r9, LSL #1
+  104 00000098 E089900C        ADD              r9, r9, r12 ; (7) -> c3
+  105 0000009C E1A09089        MOV              r9, r9, LSL #1
+  106 000000A0 E0899005        ADD              r9, r9, r5  ; (6)
+  107 000000A4 E1A09089        MOV              r9, r9, LSL #1
+  108 000000A8 E0899004        ADD              r9, r9, r4  ; (5)
+  109 000000AC E1A09089        MOV              r9, r9, LSL #1
+  110 000000B0 E0899003        ADD              r9, r9, r3  ; (4)
+  111 000000B4 E1A09089        MOV              r9, r9, LSL #1
+  112 000000B8 E089900B        ADD              r9, r9, r11 ; (3) -> c2
+  113 000000BC E1A09089        MOV              r9, r9, LSL #1
+  114 000000C0 E0899002        ADD              r9, r9, r2  ; (2)
+  115 000000C4 E1A09089        MOV              r9, r9, LSL #1
+  116 000000C8 E089900A        ADD              r9, r9, r10 ; (1) -> c1
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+  117 000000CC E1A09089        MOV              r9, r9, LSL #1
+  118 000000D0 E0890000        ADD              r0, r9, r0  ; (0) -> c0
+  119 000000D4         
+  120 000000D4         ; -------------- end cut --------------------------
+  121 000000D4         ; Changes below this line are discarded by CODEMARK.
+  122 000000D4         ; Enter your solution between dashed lines only.
+  123 000000D4         
+  124 000000D4 EAFFFFFE 
+                       stop    B                stop
+  125 000000D8                 END
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\hamming.d -o.\objects\hamming.o -IC:\Keil_v5\ARM\RV31\INC -IC:\Keil_v5\A
+RM\CMSIS\Include -IC:\Keil_v5\ARM\INC\Philips --predefine="__EVAL SETA 1" --pre
+define="__MICROLIB SETA 1" --predefine="__UVISION_VERSION SETA 524" --list=.\li
+stings\hamming.lst hamming.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Hamming 00000000
+
+Symbol: Hamming
+   Definitions
+      At line 8 in file hamming.s
+   Uses
+      None
+Comment: Hamming unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 11 in file hamming.s
+   Uses
+      At line 10 in file hamming.s
+Comment: start used once
+stop 000000D4
+
+Symbol: stop
+   Definitions
+      At line 124 in file hamming.s
+   Uses
+      At line 124 in file hamming.s
+Comment: stop used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 9 in file hamming.s
+   Uses
+      None
+Comment: main unused
+1 symbol
+337 symbols in table

@@ -57,9 +57,11 @@ def polynomial_design_matrix(x, order=1):
 #
 # This uses numpy to solve the normal equation (see slide 16 of handout 1)
 def linear_regression(X, y, eps=0):
-    order = X.shape[1] - 1;
+#    order = X.shape[1] - 1;
+#    print ("X.shape[1]: ", X.shape[1])
+#    print ("Order: ", order)
     M = np.dot(X.transpose(), X)
-
+#    print ("M: ", M)
     # EXERCISE 2: implement Tikhonov regularisation.
     # See lecture handout 1, slide 35.
     # print("Eps: " + str(eps))
@@ -72,6 +74,12 @@ def linear_regression(X, y, eps=0):
     # The number of rows in a matrix 'A' is then 'A.shape[0]' (or 'len(A)')
     # You can add matrices with '+' -- so you will update 'M' with 'M = M + <amount> * <identity>'
     # Note that the amount of regularization is denoted 'alpha' in the slides but here it's 'eps'.
+#    print("Eps: " + str(eps))
+    I = np.identity(M.shape[0])
+#    print("I: ", I)
+    M = M + (eps*I)
+#    print("M + (eps*I): ", M)
+#    print("inv(M): ", np.linalg.inv(M))
     theta = np.dot(np.linalg.inv(M), np.dot(X.transpose(), y))
     return theta;
 
@@ -80,9 +88,20 @@ def mean_squared_error(y1, y2):
     # You can use '-' to compute the elementwise difference of numpy vectors (i.e. y1 - y2).
     # You can use '**' for elementwise exponentiation of a numpy vector.
     # You can use the numpy function 'mean' to compute the mean of a vector.
-    return 0  # replace this with your answer.
+#    mse = (np.mean(y1) - np.mean(y2))**2
+#    mse = (1/len(y1))*sum((y1-y2)**2)
+#    mse = np.mean((y1-y2)**2)
+#    mse = sum((y1- y2)**2)
+    mse = np.mean((y1-y2)**2)
+    return mse # replace this with your answer.
 
 # EXERCISE 4: return the number of the best order for the supplied
 # data (see the notebook).
-def question_4():
-    return 0   # replace '0' with your answer.
+def question_4(y, yh, X):
+    SSR = sum((y-yh)**2)
+    SST = sum((y-np.mean(y))**2)
+    r_sq = 1 - (float(SSR))/SST
+    a_r_sq = 1 - (1-r_sq)*(len(y)-1)/(len(y)-X.shape[1]-1)
+    print ("R^2: ", r_sq)
+    print ("A_R^2: ", a_r_sq)
+    return r_sq   # replace '0' with your answer.

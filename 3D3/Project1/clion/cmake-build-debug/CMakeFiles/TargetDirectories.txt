@@ -1,3 +1,0 @@
-/home/rob/Desktop/Project1/clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/rob/Desktop/Project1/clion/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/rob/Desktop/Project1/clion/cmake-build-debug/CMakeFiles/clion.dir

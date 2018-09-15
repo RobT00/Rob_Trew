@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1457487778 source:h:\google drive\1e3\coding\self\alt_calc_date\alt_calc_date.cpp
-	<iostream>
-	<iomanip>
-	<string>
-	<cmath>
-

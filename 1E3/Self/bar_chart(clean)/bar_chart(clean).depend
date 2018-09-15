@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1458665950 source:c:\google drive\1e3\coding\self\bar_chart(clean)\bar_chart(clean).cpp
-	<iostream>
-	<fstream>
-	<iomanip>
-

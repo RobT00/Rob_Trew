@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1456272444 source:h:\google drive\1e3\coding\self\gravity\gravity.cpp
-	<iostream>
-	<cmath>
-	<iomanip>
-	<string>
-

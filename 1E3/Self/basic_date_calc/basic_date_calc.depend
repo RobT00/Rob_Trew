@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1457485735 source:h:\google drive\1e3\coding\self\basic_date_calc\basic_date_calc.cpp
-	<iostream>
-	<iomanip>
-	<string>
-	<cmath>
-

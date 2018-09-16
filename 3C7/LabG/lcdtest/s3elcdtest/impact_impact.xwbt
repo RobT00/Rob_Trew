@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=Z:\3c7\LabG\Code\lcdtest\s3elcdtest\impact.xsl
+OUTFILE=Z:\3c7\LabG\Code\lcdtest\s3elcdtest\impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=Z:\3c7\LabG\Code\lcdtest\s3elcdtest
+LICENSE=iMPACT
+USER_INFO=iMPACT

@@ -1,0 +1,18 @@
+//! **************************************************************************
+// Written by: Map O.87xd on Thu Mar 15 15:19:57 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "CCLK" LOCATE = SITE "C9" LEVEL 1;
+COMP "BTN0" LOCATE = SITE "V4" LEVEL 1;
+COMP "LCDE" LOCATE = SITE "M18" LEVEL 1;
+COMP "LCDRS" LOCATE = SITE "L18" LEVEL 1;
+COMP "LCDRW" LOCATE = SITE "L17" LEVEL 1;
+COMP "LCDDAT<0>" LOCATE = SITE "R15" LEVEL 1;
+COMP "LCDDAT<1>" LOCATE = SITE "R16" LEVEL 1;
+COMP "LCDDAT<2>" LOCATE = SITE "P17" LEVEL 1;
+COMP "LCDDAT<3>" LOCATE = SITE "M15" LEVEL 1;
+NET "CCLK_BUFGP/IBUFG" BEL "CCLK_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+NET "CCLK_BUFGP/IBUFG" PERIOD = 20 ns HIGH 40%;
+SCHEMATIC END;
+

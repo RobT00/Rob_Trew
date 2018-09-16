@@ -1,0 +1,4 @@
+verilog work "../../peripherals/pbdebounce.v"
+verilog work "../../peripherals/lcd.v"
+verilog work "../../peripherals/clock.v"
+verilog work "lcdtest.v"

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=Z:\3c7\LabG\Code\lcdtest\s3elcdtest\lcdtest.ncd
+OUTFILE=Z:\3c7\LabG\Code\lcdtest\s3elcdtest\lcdtest.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=Z:\3c7\LabG\Code\lcdtest\s3elcdtest
+LICENSE=ISE
+USER_INFO=175135995_175135997_210541149_300

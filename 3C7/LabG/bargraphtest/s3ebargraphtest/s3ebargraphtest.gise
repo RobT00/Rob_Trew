@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="s3ebargraphtest.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_CMD" xil_pn:name="_impact.cmd"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="_impact.log"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="bargraphtest.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="bargraphtest.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="bargraphtest.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="bargraphtest.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="bargraphtest.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="bargraphtest.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="bargraphtest.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="bargraphtest.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="bargraphtest.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="bargraphtest.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="bargraphtest.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="bargraphtest.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="bargraphtest.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="bargraphtest.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="bargraphtest.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="bargraphtest.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="bargraphtest.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="bargraphtest.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="bargraphtest.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="bargraphtest.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="bargraphtest.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="bargraphtest.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="bargraphtest.xst"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="bargraphtest_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="bargraphtest_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="bargraphtest_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="bargraphtest_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="bargraphtest_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="bargraphtest_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="bargraphtest_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="bargraphtest_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="bargraphtest_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="bargraphtest_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="bargraphtest_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="bargraphtest_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="bargraphtest_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="bargraphtest_xst.xrpt"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="s3ebargraphtest.ntrc_log"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="usage_statistics_webtalk.html"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="webtalk.log"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xlnx_auto_0_xdb"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1521126695" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126695" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-2800527388884843264" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126695" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="994551693207648742" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126695" xil_pn:name="TRAN_SubProjectAbstractToPreProxy" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126695" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="2473186708333370558" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126695" xil_pn:name="TRAN_SubProjectPreToStructuralProxy" xil_pn:prop_ck="-3893270297158069842" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126695" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="7767905402639174640" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126703" xil_pn:in_ck="-4643418084120150098" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="6108008677477442797" xil_pn:start_ts="1521126695">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
+      <outfile xil_pn:name="bargraphtest.lso"/>
+      <outfile xil_pn:name="bargraphtest.ngc"/>
+      <outfile xil_pn:name="bargraphtest.ngr"/>
+      <outfile xil_pn:name="bargraphtest.prj"/>
+      <outfile xil_pn:name="bargraphtest.stx"/>
+      <outfile xil_pn:name="bargraphtest.syr"/>
+      <outfile xil_pn:name="bargraphtest.xst"/>
+      <outfile xil_pn:name="bargraphtest_xst.xrpt"/>
+      <outfile xil_pn:name="s3ebargraphtest.ntrc_log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+      <outfile xil_pn:name="xst"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126703" xil_pn:in_ck="-150146076731081677" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8003136427057400727" xil_pn:start_ts="1521126703">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126708" xil_pn:in_ck="-6017105311924395328" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-2354174778834858071" xil_pn:start_ts="1521126703">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_ngo"/>
+      <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+      <outfile xil_pn:name="bargraphtest.bld"/>
+      <outfile xil_pn:name="bargraphtest.ngd"/>
+      <outfile xil_pn:name="bargraphtest_ngdbuild.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126714" xil_pn:in_ck="5502690623679737185" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-6331064963220163663" xil_pn:start_ts="1521126708">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="bargraphtest.pcf"/>
+      <outfile xil_pn:name="bargraphtest_map.map"/>
+      <outfile xil_pn:name="bargraphtest_map.mrp"/>
+      <outfile xil_pn:name="bargraphtest_map.ncd"/>
+      <outfile xil_pn:name="bargraphtest_map.ngm"/>
+      <outfile xil_pn:name="bargraphtest_map.xrpt"/>
+      <outfile xil_pn:name="bargraphtest_summary.xml"/>
+      <outfile xil_pn:name="bargraphtest_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126752" xil_pn:in_ck="-3570156892451893990" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="-5563652517805085498" xil_pn:start_ts="1521126714">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="bargraphtest.ncd"/>
+      <outfile xil_pn:name="bargraphtest.pad"/>
+      <outfile xil_pn:name="bargraphtest.par"/>
+      <outfile xil_pn:name="bargraphtest.ptwx"/>
+      <outfile xil_pn:name="bargraphtest.unroutes"/>
+      <outfile xil_pn:name="bargraphtest.xpi"/>
+      <outfile xil_pn:name="bargraphtest_pad.csv"/>
+      <outfile xil_pn:name="bargraphtest_pad.txt"/>
+      <outfile xil_pn:name="bargraphtest_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126762" xil_pn:in_ck="-3234499335638278166" xil_pn:name="TRANEXT_bitFile_spartan3e" xil_pn:prop_ck="287829442711806529" xil_pn:start_ts="1521126752">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
+      <outfile xil_pn:name="bargraphtest.bgn"/>
+      <outfile xil_pn:name="bargraphtest.bit"/>
+      <outfile xil_pn:name="bargraphtest.drc"/>
+      <outfile xil_pn:name="bargraphtest.ut"/>
+      <outfile xil_pn:name="usage_statistics_webtalk.html"/>
+      <outfile xil_pn:name="webtalk.log"/>
+      <outfile xil_pn:name="webtalk_pn.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126762" xil_pn:in_ck="-3234499335638291020" xil_pn:name="TRAN_impactProgrammingTool" xil_pn:prop_ck="-3718689525924665190" xil_pn:start_ts="1521126762">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <outfile xil_pn:name="_impact.cmd"/>
+      <outfile xil_pn:name="_impact.log"/>
+    </transform>
+    <transform xil_pn:end_ts="1521126752" xil_pn:in_ck="-2477358831882522019" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="-1758799009971969895" xil_pn:start_ts="1521126748">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="bargraphtest.twr"/>
+      <outfile xil_pn:name="bargraphtest.twx"/>
+    </transform>
+  </transforms>
+
+</generated_project>

@@ -1,0 +1,17 @@
+# Xilinx Spartan-3E Starter Board 
+# c 2008 Embedded System Design using Programmable Gate Arrays  Dennis Silage
+# User Control File (UCF)  bargraphtests3esb.ucf
+
+# Crystal Clock Oscillator
+NET	"CCLK"		LOC = "C9" 	| IOSTANDARD = LVCMOS33;
+NET  "CCLK"		PERIOD = 20.0ns HIGH 40%;
+
+# LEDs
+NET 	"LD0"			LOC = "F12" | IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW; 
+NET 	"LD1"			LOC = "E12"	| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW;
+NET 	"LD2"			LOC = "E11"	| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW;
+NET 	"LD3"			LOC = "F11"	| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW;
+NET 	"LD4"			LOC = "C11"	| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW;
+NET 	"LD5"			LOC = "D11"	| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW;
+NET 	"LD6"			LOC = "E9"	| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW;
+NET 	"LD7"			LOC = "F9"	| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW;

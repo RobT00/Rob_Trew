@@ -1,0 +1,24 @@
+xst -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -ifn bargraphtest.xst -ofn bargraphtest.syr
+ngdbuild -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -dd _ngo -nt timestamp -uc "bargraphtests3esb.ucf" -p xc3s500e-fg320-4 "bargraphtest.ngc" bargraphtest.ngd
+map -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -p xc3s500e-fg320-4 -cm area -pr b -k 4 -c 100 -o bargraphtest_map.ncd bargraphtest.ngd bargraphtest.pcf
+par -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -w -intstyle ise -ol std -t 1 bargraphtest_map.ncd bargraphtest.ncd bargraphtest.pcf
+trce -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -e 3 -s 4 -xml bargraphtest bargraphtest.ncd -o bargraphtest.twr bargraphtest.pcf -ucf bargraphtests3esb.ucf
+bitgen -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -f bargraphtest.ut bargraphtest.ncd
+xst -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -ifn bargraphtest.xst -ofn bargraphtest.syr
+ngdbuild -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -dd _ngo -nt timestamp -uc "bargraphtests3esb.ucf" -p xc3s500e-fg320-4 "bargraphtest.ngc" bargraphtest.ngd
+map -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -p xc3s500e-fg320-4 -cm area -pr b -k 4 -c 100 -o bargraphtest_map.ncd bargraphtest.ngd bargraphtest.pcf
+par -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -w -intstyle ise -ol std -t 1 bargraphtest_map.ncd bargraphtest.ncd bargraphtest.pcf
+trce -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -e 3 -s 4 -xml bargraphtest bargraphtest.ncd -o bargraphtest.twr bargraphtest.pcf -ucf bargraphtests3esb.ucf
+bitgen -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -f bargraphtest.ut bargraphtest.ncd
+xst -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -ifn bargraphtest.xst -ofn bargraphtest.syr
+ngdbuild -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -dd _ngo -nt timestamp -uc "bargraphtests3esb.ucf" -p xc3s500e-fg320-4 "bargraphtest.ngc" bargraphtest.ngd
+map -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -p xc3s500e-fg320-4 -cm area -pr b -k 4 -c 100 -o bargraphtest_map.ncd bargraphtest.ngd bargraphtest.pcf
+par -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -w -intstyle ise -ol std -t 1 bargraphtest_map.ncd bargraphtest.ncd bargraphtest.pcf
+trce -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -e 3 -s 4 -xml bargraphtest bargraphtest.ncd -o bargraphtest.twr bargraphtest.pcf -ucf bargraphtests3esb.ucf
+bitgen -ise "C:/EDPGA/Chapter 3/bargraphtest/s3ebargraphtest/s3ebargraphtest.ise" -intstyle ise -f bargraphtest.ut bargraphtest.ncd
+xst -intstyle ise -ifn "Z:/3c7/LabG/Code/bargraphtest/s3ebargraphtest/bargraphtest.xst" -ofn "Z:/3c7/LabG/Code/bargraphtest/s3ebargraphtest/bargraphtest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc bargraphtests3esb.ucf -p xc3s500e-fg320-4 bargraphtest.ngc bargraphtest.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr b -c 100 -o bargraphtest_map.ncd bargraphtest.ngd bargraphtest.pcf 
+par -w -intstyle ise -ol high -t 1 bargraphtest_map.ncd bargraphtest.ncd bargraphtest.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml bargraphtest.twx bargraphtest.ncd -o bargraphtest.twr bargraphtest.pcf -ucf bargraphtests3esb.ucf 
+bitgen -intstyle ise -f bargraphtest.ut bargraphtest.ncd 

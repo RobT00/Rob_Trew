@@ -1,0 +1,3 @@
+verilog work "../../peripherals/clock.v"
+verilog work "../../peripherals/bargraph.v"
+verilog work "bargraphtest.v"

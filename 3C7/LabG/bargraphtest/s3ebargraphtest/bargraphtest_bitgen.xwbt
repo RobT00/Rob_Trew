@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=Z:\3c7\LabG\Code\bargraphtest\s3ebargraphtest\bargraphtest.ncd
+OUTFILE=Z:\3c7\LabG\Code\bargraphtest\s3ebargraphtest\bargraphtest.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=Z:\3c7\LabG\Code\bargraphtest\s3ebargraphtest
+LICENSE=ISE
+USER_INFO=175135995_175135997_210541149_300

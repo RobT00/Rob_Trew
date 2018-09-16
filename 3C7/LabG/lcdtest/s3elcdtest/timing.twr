@@ -1,0 +1,15 @@
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+------------------------------------------------------------------------------------------------------
+  Constraint                                |  Check  | Worst Case |  Best Case | Timing |   Timing   
+                                            |         |    Slack   | Achievable | Errors |    Score   
+------------------------------------------------------------------------------------------------------
+* NET "CCLK_BUFGP/IBUFG" PERIOD = 20 ns HIG | SETUP   |    -0.221ns|    20.221ns|       2|         364
+  H 40%                                     | HOLD    |     1.102ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+
+
+1 constraint not met.
+
+

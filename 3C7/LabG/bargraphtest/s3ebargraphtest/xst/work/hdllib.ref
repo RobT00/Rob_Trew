@@ -1,0 +1,4 @@
+MO clock NULL ../../peripherals/clock.v vlg20/clock.bin 1521126699
+MO gendata NULL bargraphtest.v vlg08/gendata.bin 1521126699
+MO bargraphtest NULL bargraphtest.v vlg33/bargraphtest.bin 1521126699
+MO bargraph NULL ../../peripherals/bargraph.v vlg6F/bargraph.bin 1521126699

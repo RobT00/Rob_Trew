@@ -1,0 +1,12 @@
+xst -ise "C:/EDPGA/Chapter 3/lcdtest/s3elcdtest/s3elcdtest.ise" -intstyle ise -ifn lcdtest.xst -ofn lcdtest.syr
+ngdbuild -ise "C:/EDPGA/Chapter 3/lcdtest/s3elcdtest/s3elcdtest.ise" -intstyle ise -dd _ngo -nt timestamp -uc "lcdtests3esb.ucf" -p xc3s500e-fg320-4 "lcdtest.ngc" lcdtest.ngd
+map -ise "C:/EDPGA/Chapter 3/lcdtest/s3elcdtest/s3elcdtest.ise" -intstyle ise -p xc3s500e-fg320-4 -cm area -pr b -k 4 -c 100 -o lcdtest_map.ncd lcdtest.ngd lcdtest.pcf
+par -ise "C:/EDPGA/Chapter 3/lcdtest/s3elcdtest/s3elcdtest.ise" -w -intstyle ise -ol std -t 1 lcdtest_map.ncd lcdtest.ncd lcdtest.pcf
+trce -ise "C:/EDPGA/Chapter 3/lcdtest/s3elcdtest/s3elcdtest.ise" -intstyle ise -e 3 -s 4 -xml lcdtest lcdtest.ncd -o lcdtest.twr lcdtest.pcf -ucf lcdtests3esb.ucf
+bitgen -ise "C:/EDPGA/Chapter 3/lcdtest/s3elcdtest/s3elcdtest.ise" -intstyle ise -f lcdtest.ut lcdtest.ncd
+xst -intstyle ise -ifn "Z:/3c7/LabG/Code/lcdtest/s3elcdtest/lcdtest.xst" -ofn "Z:/3c7/LabG/Code/lcdtest/s3elcdtest/lcdtest.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -uc lcdtests3esb.ucf -p xc3s500e-fg320-4 lcdtest.ngc lcdtest.ngd  
+map -intstyle ise -p xc3s500e-fg320-4 -cm area -ir off -pr b -c 100 -o lcdtest_map.ncd lcdtest.ngd lcdtest.pcf 
+par -w -intstyle ise -ol high -t 1 lcdtest_map.ncd lcdtest.ncd lcdtest.pcf 
+trce -intstyle ise -e 3 -s 4 -n 3 -xml lcdtest.twx lcdtest.ncd -o lcdtest.twr lcdtest.pcf -ucf lcdtests3esb.ucf 
+bitgen -intstyle ise -f lcdtest.ut lcdtest.ncd 

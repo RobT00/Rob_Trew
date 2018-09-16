@@ -1,0 +1,5 @@
+MO clock NULL ../../peripherals/clock.v vlg20/clock.bin 1521127177
+MO lcd NULL ../../peripherals/lcd.v vlg5F/lcd.bin 1521127177
+MO lcdtest NULL lcdtest.v vlg23/lcdtest.bin 1521127177
+MO genlcd NULL lcdtest.v vlg7D/genlcd.bin 1521127177
+MO pbdebounce NULL ../../peripherals/pbdebounce.v vlg6F/pbdebounce.bin 1521127177

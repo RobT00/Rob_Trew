@@ -1,0 +1,18 @@
+//! **************************************************************************
+// Written by: Map O.87xd on Thu Mar 15 15:11:52 2018
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "CCLK" LOCATE = SITE "C9" LEVEL 1;
+COMP "LD0" LOCATE = SITE "F12" LEVEL 1;
+COMP "LD1" LOCATE = SITE "E12" LEVEL 1;
+COMP "LD2" LOCATE = SITE "E11" LEVEL 1;
+COMP "LD3" LOCATE = SITE "F11" LEVEL 1;
+COMP "LD4" LOCATE = SITE "C11" LEVEL 1;
+COMP "LD5" LOCATE = SITE "D11" LEVEL 1;
+COMP "LD6" LOCATE = SITE "E9" LEVEL 1;
+COMP "LD7" LOCATE = SITE "F9" LEVEL 1;
+NET "CCLK_BUFGP/IBUFG" BEL "CCLK_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+NET "CCLK_BUFGP/IBUFG" PERIOD = 20 ns HIGH 40%;
+SCHEMATIC END;
+

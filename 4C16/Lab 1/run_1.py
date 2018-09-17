@@ -39,16 +39,16 @@ x = my_data[0,:]
 y = my_data[1,:]
 
 min_order=1
-max_order=50
-min_alpha=0
-max_aplha=1
-
+max_order=3
+min_alpha=0.0
+max_alpha=1.0
+alpha=np.arange(min_alpha, max_alpha, 0.001)
 max_r = None
-mpl.pyplot.plot(x, y)
+mpl.pyplot.scatter(x, y)
 for order in range (min_order, max_order+1):
   design_matrix = ex_1.polynomial_design_matrix(x, order)
-  for alpha in range (min_alpha, max_aplha+1):
-    theta = ex_1.linear_regression(design_matrix, y, alpha)
+  for a in range (len(alpha)):
+    theta = ex_1.linear_regression(design_matrix, y, alpha[a])
   #  print("Theta: ", theta)
     y2 = np.zeros(shape=(y.size))
     #y2 = x * (theta[1] + theta[0])
@@ -68,7 +68,7 @@ for order in range (min_order, max_order+1):
         else:
           y2[i]+=(x[i]**j)*(theta[j])
     print("Order: ", order)
-    print("Alpha: ", alpha)
+  #  print("Alpha: ", alpha)
   #  mpl.pyplot.plot(x, y2)
   #  print ("y2: ", y2)
   #  mpl.pyplot.plot(x, y2)
@@ -79,7 +79,7 @@ for order in range (min_order, max_order+1):
     if max_r is None or t_r > max_r:
       min_mse = mse
       max_r = t_r
-      min_aplha = alpha
+      min_aplha = alpha[a]
       min_ord = order
       min_y = y2
       min_theta = theta

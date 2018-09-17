@@ -44,7 +44,6 @@ min_alpha=0.0
 max_alpha=1.0
 alpha=np.arange(min_alpha, max_alpha, 0.001)
 max_r = None
-mpl.pyplot.scatter(x, y)
 for order in range (min_order, max_order+1):
   design_matrix = ex_1.polynomial_design_matrix(x, order)
   for a in range (len(alpha)):
@@ -75,7 +74,7 @@ for order in range (min_order, max_order+1):
     
     mse = ex_1.mean_squared_error(y, y2)
     t_r = ex_1.question_4(y, y2, design_matrix)
-#    print("Mean Squared Error: ", mse)
+    print("Mean Squared Error: ", mse)
     if max_r is None or t_r > max_r:
       min_mse = mse
       max_r = t_r
@@ -87,4 +86,7 @@ for order in range (min_order, max_order+1):
 print("\n\nBest order: ", min_ord)
 print("Mean Squared Error: ", min_mse)
 print("Adjusted R^2: ", max_r)
+mpl.pyplot.figure()
+mpl.pyplot.scatter(x, y)
 mpl.pyplot.plot(x, min_y)
+mpl.pyplot.show()

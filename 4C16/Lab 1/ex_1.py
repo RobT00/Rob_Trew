@@ -104,5 +104,27 @@ def question_4(y, yh, X):
     a_r_sq = 1 - (1-r_sq)*(len(y)-1)/(len(y)-X.shape[1]-1)
     print ("R^2: ", r_sq)
     print ("A_R^2: ", a_r_sq)
-    return (r_sq - a_r_sq)   # replace '0' with your answer.
+    return abs(r_sq - a_r_sq), r_sq   # replace '0' with your answer.
 #Answer is 3
+
+
+####
+def find_optimal(r2, adj_r2, mse, order):
+  #score = (position in r2 + pos in adj_r2 + pos in mse + order(+1)) / terms (i.e.4) # May not need division
+  #r2 score corresponding to order
+  for i in range (r2.shape[0]):
+    if (r2[i,1]) == order:
+      r2_pos = i
+      break
+  #adj r2 score corresponding to order
+  for i in range (adj_r2.shape[0]):
+    if (adj_r2[i,1] == order):
+      adj_r2_pos = i
+      break
+  #mse score corresponding to order
+  for i in range (mse.shape[0]):
+    if (mse[i, 1]) == order:
+      mse_pos = i
+      break
+  score = (r2_pos + adj_r2_pos + 2*mse_pos + (order+1)**2)
+  return score

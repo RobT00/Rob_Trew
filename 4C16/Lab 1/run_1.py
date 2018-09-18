@@ -11,18 +11,20 @@ my_data = np.genfromtxt("data_1.csv", delimiter=',')
 #print(np.size(my_data,1))
 #print(my_data[1,0])
 #print("\n\n")
-x=np.arange(-500, 500, 1)
+x=np.arange(-50, 50, 1)
 y=(5*x**3 + 2*x**2 + 3*x + 4)
 #x = my_data[0,:]
 #y = my_data[1,:]
 min_order=1
-max_order=12
+max_order=50
 min_alpha=0.00
 max_alpha=0.00
 mse_ar = []
 ord_ar = []
 r_ar = []
+r2_ar = []
 y_ar = []
+t_ar = []
 alpha=np.arange(min_alpha, max_alpha, 0.001)
 if len(alpha) == 0 or min_alpha == max_alpha:
   alpha=np.arange(min_alpha, 1)
@@ -54,33 +56,45 @@ for order in range (min_order, max_order+1):
   #  mpl.pyplot.plot(x, y2)
     
     mse = ex_1.mean_squared_error(y, y2)
-    t_r = ex_1.question_4(y, y2, design_matrix)
+    t_r, r2 = ex_1.question_4(y, y2, design_matrix)
     print("Mean Squared Error: ", mse)
     print("R ratio: ", t_r)
 #    if max_r is None or t_r > max_r:
 #    if min_mse is None or mse < min_mse:
     min_mse = mse
-    max_r = t_r
+    a_r = t_r
+    max_r = r2
     min_aplha = alpha[a]
     min_ord = order
     min_y = y2
     min_theta = theta
-  r_ar.append(max_r)
+#  if abs(theta[0]/theta[theta.shape[0]-1]) > 100: break
+  r_ar.append(a_r)
+  r2_ar.append(max_r)
   mse_ar.append(min_mse)
   ord_ar.append(order)
   y_ar.append(min_y)
+  t_ar.append(theta)
   
-srt = sorted(zip(r_ar, ord_ar, mse_ar, y_ar))
-r_ar, ord_ar, mse_ar, y_ar = list(zip(*srt))
-print("\n\nBest order: ", ord_ar[0])
-print("Mean Squared Error: ", mse_ar[0])
+#srt = sorted(zip(r2_ar, r_ar, ord_ar, mse_ar, y_ar, t_ar), reverse=True)
+#r2_ar, r_ar, ord_ar, mse_ar, y_ar, t_ar = list(zip(*srt))
+r2_ar = sorted(zip(r2_ar, ord_ar), reverse=True)
+r_ar = sorted(zip(r_ar, ord_ar))
+mse_ar = sorted(zip(mse_ar, ord_ar))
+score = np.zeros(shape=(len(ord_ar), 2))
+for i in range (len(ord_ar)): 
+  score[i,0] = ex_1.find_optimal(np.asarray(r2_ar), np.asarray(r_ar), np.asarray(mse_ar), ord_ar[i])
+  score[i,1] = ord_ar[i]
+score = score[score[:,0].argsort()]
+print("\n\nBest order: ", int(score[0,1]))
+print("Mean Squared Error: ", score[0,0])
 #print("Adjusted R^2: ", max_r)
 
 mpl.pyplot.figure()
-#mpl.pyplot.scatter(x, y)
-#mpl.pyplot.scatter(x, y_ar[0])
+mpl.pyplot.scatter(x, y)
+mpl.pyplot.plot(x, y_ar[0], 'r')
 #mpl.pyplot.scatter(x, y_ar[1])
 #mpl.pyplot.scatter(x, y_ar[2])
-mpl.pyplot.plot(x, y)
+#mpl.pyplot.plot(x, y)
 #mpl.pyplot.plot(x, y_ar[0])
 mpl.pyplot.show()

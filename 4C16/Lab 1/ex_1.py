@@ -104,5 +104,5 @@ def question_4(y, yh, X):
     a_r_sq = 1 - (1-r_sq)*(len(y)-1)/(len(y)-X.shape[1]-1)
     print ("R^2: ", r_sq)
     print ("A_R^2: ", a_r_sq)
-    return a_r_sq   # replace '0' with your answer.
+    return (r_sq - a_r_sq)   # replace '0' with your answer.
 #Answer is 3

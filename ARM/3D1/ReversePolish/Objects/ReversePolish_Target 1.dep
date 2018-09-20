@@ -1,0 +1,3 @@
+Dependencies for Project 'ReversePolish', Target 'Target 1': (DO NOT MODIFY !)
+F (.\ReversePolish.s)(0x5A443260)(--cpu ARM7TDMI --pd "__EVAL SETA 1" -g --apcs=interwork --pd "__MICROLIB SETA 1"-ID:\Utilities\Keil\ARM\RV31\INC-ID:\Utilities\Keil\ARM\CMSIS\Include-ID:\Utilities\Keil\ARM\INC\Philips--pd "__UVISION_VERSION SETA 524" --pd "NO_CLOCK_SETUP SETA 1" --pd "NO_EMC_SETUP SETA 1" --pd "RAM_INTVEC SETA 1" --pd "RAM_MODE SETA 1" --pd "REMAP SETA 1"--list .\listings\reversepolish.lst --xref -o .\objects\reversepolish.o --depend .\objects\reversepolish.d)
+F (..\libcs1021\libcs1021.lib)(0x4C553688)()

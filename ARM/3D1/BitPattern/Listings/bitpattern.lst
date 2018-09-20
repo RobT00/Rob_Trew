@@ -1,0 +1,160 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Start of file BitPattern.s
+    2 00000000         ;
+    3 00000000         ; Copyright 2017 University of Dublin. All Rights Reserv
+                       ed.
+    4 00000000         ;
+    5 00000000         ; Design and write an ARM Assembly Language program that
+                        will examine a
+    6 00000000         ; 32-bit value stored in R1 and count the number of cont
+                       iguous sequences
+    7 00000000         ; of 1s and store this in R0.
+    8 00000000         ; For example, the value 0111000100011110110011100011111
+                       1 will give 6 in R0.
+    9 00000000         ; 
+   10 00000000                 AREA             BitPattern, CODE, READONLY
+   11 00000000                 IMPORT           main
+   12 00000000                 EXPORT           start
+   13 00000000         start
+   14 00000000         
+   15 00000000 E59F1044        LDR              R1, =2_011100010001111011001110
+00111111
+   16 00000004         
+   17 00000004         ; Changes above this line are discarded by CODEMARK.
+   18 00000004         ; Enter your solution between dashed lines only.
+   19 00000004         ; ARM syntax requires instructions to be indented by
+   20 00000004         ; at least one space or tab.
+   21 00000004         ; -------------- start cut ------------------------
+   22 00000004 E3A0A000        LDR              r10, =0
+   23 00000008 E3A00000        LDR              r0, =0
+   24 0000000C E3A08001        LDR              r8, =1
+   25 00000010         loop
+   26 00000010 E35A0020        CMP              r10, #0x20
+   27 00000014 1A000000        BNE              else1       ;if 0, 32 bits chec
+                                                            ked
+   28 00000018 EA00000A        B                breakloop   ;all bits checked, 
+                                                            exit program
+   29 0000001C         else1
+   30 0000001C E1A03A31        MOV              r3, r1, LSR r10
+   31 00000020 E2032001        AND              r2, r3, #1  ;check if curent bi
+                                                            t is 1 or 0
+   32 00000024 E28AA001        ADD              r10, r10, #1 ;increment bit cou
+                                                            nt
+   33 00000028 E1520008        CMP              r2, r8
+   34 0000002C 1A000004        BNE              if1         ;a new sequence of 
+                                                            1s is found
+   35 00000030 E2288001        EOR              r8, r8, #1  ;flip check bit
+   36 00000034 E3520001        CMP              r2, #1      ;check if 1
+   37 00000038 1A000001        BNE              if1
+   38 0000003C E2800001        ADD              r0, r0, #1  ;increment count of
+                                                             sequences of 1s
+   39 00000040 EAFFFFF2        B                loop        ;back to top
+   40 00000044         if1                                  ;bit is not a new s
+                                                            equence of 1s
+   41 00000044 EAFFFFF1        B                loop
+   42 00000048         breakloop
+   43 00000048         ; -------------- end cut --------------------------
+   44 00000048         ; Changes below this line are discarded by CODEMARK.
+   45 00000048         ; Enter your solution between dashed lines only.
+   46 00000048         
+   47 00000048 EAFFFFFE 
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                       stop    B                stop
+   48 0000004C                 END
+              711ECE3F 
+Command Line: --debug --xref --diag_suppress=9931 --apcs=interwork --depend=.\o
+bjects\bitpattern.d -o.\objects\bitpattern.o -ID:\Utilities\Keil\ARM\RV31\INC -
+ID:\Utilities\Keil\ARM\CMSIS\Include -ID:\Utilities\Keil\ARM\INC\Philips --pred
+efine="__EVAL SETA 1" --predefine="__MICROLIB SETA 1" --predefine="__UVISION_VE
+RSION SETA 524" --list=.\listings\bitpattern.lst bitpattern.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+BitPattern 00000000
+
+Symbol: BitPattern
+   Definitions
+      At line 10 in file bitpattern.s
+   Uses
+      None
+Comment: BitPattern unused
+breakloop 00000048
+
+Symbol: breakloop
+   Definitions
+      At line 42 in file bitpattern.s
+   Uses
+      At line 28 in file bitpattern.s
+Comment: breakloop used once
+else1 0000001C
+
+Symbol: else1
+   Definitions
+      At line 29 in file bitpattern.s
+   Uses
+      At line 27 in file bitpattern.s
+Comment: else1 used once
+if1 00000044
+
+Symbol: if1
+   Definitions
+      At line 40 in file bitpattern.s
+   Uses
+      At line 34 in file bitpattern.s
+      At line 37 in file bitpattern.s
+
+loop 00000010
+
+Symbol: loop
+   Definitions
+      At line 25 in file bitpattern.s
+   Uses
+      At line 39 in file bitpattern.s
+      At line 41 in file bitpattern.s
+
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 13 in file bitpattern.s
+   Uses
+      At line 12 in file bitpattern.s
+Comment: start used once
+stop 00000048
+
+Symbol: stop
+   Definitions
+      At line 47 in file bitpattern.s
+   Uses
+      At line 47 in file bitpattern.s
+Comment: stop used once
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+main 00000000
+
+Symbol: main
+   Definitions
+      At line 11 in file bitpattern.s
+   Uses
+      None
+Comment: main unused
+1 symbol
+343 symbols in table

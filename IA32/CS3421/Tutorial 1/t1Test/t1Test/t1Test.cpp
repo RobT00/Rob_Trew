@@ -97,6 +97,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	check("p(8, 7, 6, 5)", p(8, 7, 6, 5), 4);
 
 	check("gcd(14, 21)", gcd(14, 21), 7);
+	// Max stack depth for gcd(14, 21) is 4 stack frames...each frame is 4x32bit DWORDS
 	check("gcd(1406700, 164115)", gcd(1406700, 164115), 23445);
 
 	cout << endl;

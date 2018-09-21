@@ -1,0 +1,8 @@
+﻿  Assembling fib32.asm...
+  Assembling t1.asm...
+  Generating code
+  0 of 14 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  t1Test.vcxproj -> H:\Git\Rob_Trew\IA32\CS3421\Tutorial 1\t1Test\Release\t1Test.exe

@@ -42,17 +42,20 @@ def cross_entropy(w, X, y):
     y = y.astype(float)  # Convert booleans to floats, if necessary
     n = y.shape[0]  # 'n' is the number of observations
     # Use the 'predict' function to compute the predicted probability of label 1
-    predicted_probabilities = [0] #<replace '[0]' with a call to the predict function>
-
+    # predicted_probabilities = [0] #<replace '[0]' with a call to the predict function>
+    predicted_probabilities = predict(w, X)
     # There is a fast way: one line using numpy functions log and sum,
     # and boolean ('mask' indexing).
-
+    
     # Or do it the straightforward way: initialize an accumulator variable to 0,
     # do a 'for' loop over the elements of 'y', and update the accumulator as
     # appropriate (using 'math.log').
-
+    cost_fn = 0
+    for i in range (0, n):
+        cost_fn += ((-y[i] * math.log(predicted_probabilities[i] + eps))
+                    - ((1 - y[i]) * math.log(1 - predicted_probabilities[i] + eps)))
     # Don't forget to return the average rather than the sum.
-    return 0
+    return cost_fn/n
 
 #
 # #### EXERCISE 2 ####

@@ -110,4 +110,6 @@ def predict_class(w, X, t):
 
 def question_5():
 #    return 0
-  return 0.95344572
+#  return 0.95344572
+#   return 0.42642642
+    return 0.9725

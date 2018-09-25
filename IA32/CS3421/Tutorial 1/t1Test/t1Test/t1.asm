@@ -76,7 +76,10 @@ gcd:		push	ebp				; push frame pointer
 			sub		esp, 4			; make room on stack for v (value to be returned)
 
 			mov		eax, [ebp+12]	; checking b (second argument)
-			cmp		eax, 0			; check if b (second argument) is 0
+			cmp		eax, 0			; checking if b is negative (will get absolute)
+			jge		positive		; if less than 0, continue, else jump
+			neg		eax				; negate, i.e. make positive		
+positive:	cmp		eax, 0			; check if b (second argument) is 0
 			jne		not_0			; will jump if b > 0
 			mov		eax, [ebp+8]	; return a (first argument), as b is 0
 			mov		[ebp-4], eax	; place return value on stack

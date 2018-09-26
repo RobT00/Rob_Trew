@@ -1,0 +1,8 @@
+﻿  Assembling fib32.asm...
+fib32.asm(1): error A2008: syntax error : .
+fib32.asm(2): error A2008: syntax error : .
+fib32.asm(24): error A2070: invalid instruction operands
+fib32.asm(46): error A2070: invalid instruction operands
+fib32.asm(57): error A2070: invalid instruction operands
+fib32.asm(72): error A2070: invalid instruction operands
+D:\Utilities\Microsoft Visual Studio\2017\Enterprise\Common7\IDE\VC\VCTargets\BuildCustomizations\masm.targets(69,5): error MSB3721: The command "ml64.exe /c /nologo /Zi /Fo"x64\Debug\fib32.obj" /W3 /errorReport:prompt  /Tafib32.asm" exited with code 1.

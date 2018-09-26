@@ -16,7 +16,7 @@ option casemap:none					; case sensitive
 
 public      min						; make sure function name is exported
 ; Function to return minimum of 3 integer arguments
-; Version 1
+
 min:		push	ebp				; push frame pointer
 			mov		ebp, esp		; update frame pointer with stack pointer
 			sub		esp, 4			; make room on stack for v (minimum value to be returned)
@@ -45,7 +45,7 @@ c_ge_v:		mov		eax, [ebp-4]	; set v for returning
 
 public		p						; make sure function name is exported
 ; Function to return minimum of 4 integer arguments and global (g), calls min as helper function
-; Version 1
+
 p:			push	ebp				; push frame pointer
 			mov		ebp, esp		; update frame pointer with stack pointer
 			sub		esp, 4			; make room on stack for v (value to be returned)
@@ -70,7 +70,7 @@ p:			push	ebp				; push frame pointer
 
 public		gcd						; make sure function name is exported
 ; Function to return greatest common denominator of 2 integer arguments
-;Version 1
+
 gcd:		push	ebp				; push frame pointer
 			mov		ebp, esp		; update frame pointer with stack pointer
 			sub		esp, 4			; make room on stack for v (value to be returned)

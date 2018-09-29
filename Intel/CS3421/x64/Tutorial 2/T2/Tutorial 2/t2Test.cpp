@@ -103,7 +103,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		cout << fibX64(i) << " ";
 	cout << endl;
 
-	_getch();
+	//_getch();
 
 	return 0;
 

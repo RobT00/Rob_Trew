@@ -1,9 +1,7 @@
 option casemap:none             ; case sensitive
 
 ;
-; fib64.asm
-;
-; Copyright (C) 2012 - 2017 jones@scss.tcd.ie
+; t2.asm
 ;
 
 .data
@@ -14,6 +12,23 @@ option casemap:none             ; case sensitive
 public		min                     ; export function name
 
 min:		mov		rax, rcx
+			ret
+
+public		p
+
+p:			mov		rax, rcx
+			ret
+
+public		gcd
+
+gcd:		mov		rax, rcx
+			ret
+
+public		q
+
+q:			mov		rax, rcx
+			ret
+
 
             end
-    
+; EOF    

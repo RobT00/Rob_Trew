@@ -1,7 +1,7 @@
 #pragma once
 
 // Global Variables
-
+extern "C" _int64 g;
 
 // Functions
 extern "C"	_int64 min(_int64, _int64, _int64);	// Minimum of 3 function

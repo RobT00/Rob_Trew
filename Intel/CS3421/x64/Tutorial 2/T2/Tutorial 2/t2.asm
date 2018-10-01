@@ -8,7 +8,7 @@ extrn		printf:near
 
 .data
 	public	g
-	g		QWORD	4
+	g		QWORD	4				; define g = 4, a full QWORD for 64bit operations
 
 .code
 public		min                     ; export function name
@@ -52,18 +52,13 @@ b_ne_0:		mov		rax, rcx		; move a into rax (for next call)
 ret_gcd:	ret						; return the gcd
 
 q_str		db		"a = %I64d, b = %I64d, c = %I64d, d = %I64d, e = %I64d, sum = %I64d", 0AH, 00H
-; string to be printed by q function
+; ASCII string to be printed by q function
 public		q						; export function name
 ; Function using the printf function, with 5 input parameters
 q:			sub		rsp, 64			; allocate shadow space
 			lea		rax, [rcx + rdx]; rax = <1> + <2>
 			add		rax, r8			; rax += <3>
 			add		rax, r9			; rax += <4>
-			;mov		r10, 64			; set r10 = 64
-			;mov		r11, 8			;
-			;imul	r11, 5			;
-			;add		r10, [r10 + r11];
-			;mov		r11, [rsp + r10]; move <5> into r10
 			mov		r10, [rsp + 104]; 104 = 64 + (8*5), index for <5>
 			add		rax, r10		; rax += <5>
 			mov		[rsp+56], rax	; save sum (rax) in shadow space
@@ -80,13 +75,13 @@ q:			sub		rsp, 64			; allocate shadow space
 			ret						; return the sum
 
 qns_str		db		"qns", 0AH, 00H
-; string to be printed by qns function
+; ASCII string to be printed by qns function
 public		qns						; export function name
 ; Function for testing shadow space with printf 
 qns:		lea		rcx, qns_str	; rax = string to be printed (no shadow space)
-			sub		rsp, 32			; allocate shadow space
+			;sub		rsp, 32			; allocate shadow space
 			call	printf			; call to printf function
-			add		rsp, 32			; deallocate shadow space
+			;add		rsp, 32			; deallocate shadow space
 			xor		rax, rax		; set to return 0
 			ret						; return 0
 

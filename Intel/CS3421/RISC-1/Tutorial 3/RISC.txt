@@ -1,0 +1,47 @@
+int g = 4;
+
+int min(int a, int b, int c) {
+	int v = a;
+	if (b < v)
+		v = b;
+	if (c < v)
+		v = c;
+	return v;
+}
+
+int p(int i, int j, int, k, int l) {
+	return min(min(g, i, j), k, l);
+}
+
+int gcd(int a, int b) {
+	if (b == 0) {
+	return a;
+	} else {
+	return gcd(b, a % b); // call an external function mod to evaluate a % b
+	}
+}
+;unoptimised
+p:	add		r9, r0, r10		; set up 1st parameter (g)
+	add		r26, r0, r11	; set up
+	add		r27, r0, r12
+	callr	r25, min
+	xor		r0, r0, r0		; nop
+	add		r1, r0, r10
+	add		r28, r0, r11
+	add		r29, r0, r12	; (l)
+	callr	r25, min
+	xor		r0, r0, r0
+	ret		r25, 0			; return result in r1
+	xor		r0, r0, r0		; nop
+	
+;optimised
+p:	add		r9, r0, r10		; set up 1st parameter (g)
+	add		r26, r0, r11	; set up
+	callr	r25, min
+	add		r27, r0, r12
+	add		r1, r0, r10
+	add		r28, r0, r11
+	callr	r25, min
+	add		r29, r0, r12	; (l)
+	ret		r25, 0			; return result in r1
+	xor		r0, r0, r0		; nop	

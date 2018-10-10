@@ -1,0 +1,6 @@
+﻿  main.cpp
+c:\users\trewm\desktop\git\rob_trew\intel\cs3421\risc-1\tutorial 3\tut3\tut3\main.cpp(16): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Generating code
+  All 22 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  tut3.vcxproj -> C:\Users\trewm\Desktop\Git\Rob_Trew\Intel\CS3421\RISC-1\Tutorial 3\tut3\Release\tut3.exe

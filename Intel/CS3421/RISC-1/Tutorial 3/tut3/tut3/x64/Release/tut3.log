@@ -1,0 +1,8 @@
+﻿  main.cpp
+c:\users\trewm\desktop\git\rob_trew\intel\cs3421\risc-1\tutorial 3\tut3\tut3\main.cpp(16): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  Generating code
+  2 of 20 functions (10.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  tut3.vcxproj -> C:\Users\trewm\Desktop\Git\Rob_Trew\Intel\CS3421\RISC-1\Tutorial 3\tut3\x64\Release\tut3.exe

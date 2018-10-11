@@ -1,0 +1,72 @@
+print("Accuracy: {0:.2f}%".format(((
+    model.evaluate(X_validation, Y_validation, verbose=0)[1] + model.evaluate(X_train, Y_train, verbose=0)[1]) / 2.0) * 100))
+
+55.32%
+x = Dense(1000, activation='relu')(x)
+x = Dense(800, activation='relu')(x)
+x = Dense(200, activation='relu')(x)
+opt = keras.optimizers.SGD(lr=0.033, decay=1e-6, momentum=0.95, nesterov=True)
+model.fit(X_train, Y_train,
+          batch_size=4096, epochs=40, 
+          validation_data=(X_validation, Y_validation), 
+          callbacks=[pltCallBack])
+
+54.05%
+x = Dense(1100, activation='tanh')(x)
+x = Dropout(0.01)(x)
+x = Dense(600, activation='relu')(x)
+x = Dropout(0.2)(x)
+x = Dense(200, activation='relu')(x)
+opt = keras.optimizers.SGD(lr=0.033, decay=1e-5, momentum=0.93, nesterov=True)
+model.fit(X_train, Y_train,
+          batch_size=4096, epochs=57, 
+          validation_data=(X_validation, Y_validation), 
+          callbacks=[pltCallBack])
+		  
+54.43%
+x = Dense(1000, activation='tanh')(x)
+x = Dropout(0.02)(x)
+x = Dense(800, activation='relu')(x)
+x = Dropout(0.5)(x)
+x = Dense(300, activation='relu')(x)
+opt = keras.optimizers.SGD(lr=0.033, decay=5e-5, momentum=0.9, nesterov=True)
+model.fit(X_train, Y_train,
+          batch_size=2048, epochs=40, 
+          validation_data=(X_validation, Y_validation), 
+          callbacks=[pltCallBack])
+		  
+54.85%
+x = Dropout(0.3)(x)
+x = Dense(1100, activation='relu')(x)
+x = Dropout(0.4)(x)
+x = Dense(700, activation='relu')(x)
+#x = Dropout(0.2)(x)
+x = Dense(200, activation='tanh')(x)
+x = Dropout(0.6)(x)
+opt = keras.optimizers.SGD(lr=0.02, decay=2e-6, momentum=0.93, nesterov=True)
+model.fit(X_train, Y_train,
+          batch_size=1024, epochs=150, 
+          validation_data=(X_validation, Y_validation), 
+          callbacks=[pltCallBack])
+
+54.8%
+x = Dense(1100, activation='tanh')(x)
+x = Dropout(0.4)(x)
+x = Dense(800, activation='relu')(x)
+x = Dropout(0.6)(x)
+x = Dense(200, activation='relu')(x)
+opt = keras.optimizers.SGD(lr=0.024, decay=2e-6, momentum=0.94, nesterov=True)
+
+53.16% (High Conv)
+x = Dropout(0.3)(x)
+x = Dense(1100, activation='relu')(x)
+x = Dropout(0.4)(x)
+x = Dense(700, activation='relu')(x)
+#x = Dropout(0.2)(x)
+x = Dense(200, activation='tanh')(x)
+x = Dropout(0.8)(x)
+opt = keras.optimizers.SGD(lr=0.02, decay=2e-6, momentum=0.93, nesterov=True)
+model.fit(X_train, Y_train,
+          batch_size=1024, epochs=150, 
+          validation_data=(X_validation, Y_validation), 
+          callbacks=[pltCallBack])

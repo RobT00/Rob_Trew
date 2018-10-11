@@ -1,6 +1,4 @@
 #include<iostream>
-//#include<vector>
-//#include"helper.h"
 
 int freq_int(const int arr[], int len);
 void swap(int* a, int* b);
@@ -9,45 +7,23 @@ void quick_sort(int arr[], int lo, int hi, bool rev=false);
 //int hash(int x, int l);
 
 int main() {
-	//std::cout << "Hello World\n";
 	int tst[] = { -1, -3, 0, 34, 5, 5, 5, 5, 6 };
 	//int tst[] = { 0, 0, 0 };
 	//int tst[] = { 0, 1, 2, 3 };
-	/*for (int i = 0; i < 3; i++) {
-		std::cout << tst[i] << " ";
-	}*/
-	//std::cout << std::endl;
-	//int size = sizeof(tst)/sizeof(tst[0]);
 	std::cout << "Most Frequent integer: " << freq_int(tst, sizeof(tst) / sizeof(int)) << std::endl;
-	/*for (int i = 0; i < 3; i++) {
-		std::cout << tst[i] << " ";
-	}*/
-	//std::cout << std::endl;
-	//std::string var = "Test";
-	//std::cout << var[0] << std::endl;
 	return 0;
 }
 
 int freq_int(const int arr[], int len) {
 	int* new_arr;
 	int i, j;
-	//int size = sizeof(*&arr);
-	//std::cout << size << std::endl;
 	new_arr = new int[len];
 	if (!new_arr) { return INT_MAX; } //Allocation failed
 	for (int i = 0; i < len; i++) {
 		new_arr[i] = arr[i];
 	}
-	quick_sort(new_arr, 0, len - 1);
-	/*for (i = 0; i < len; i++) {
-		std::cout << new_arr[i] << " ";
-	}
-	std::cout << std::endl;*/
+	//quick_sort(new_arr, 0, len - 1);
 	quick_sort(new_arr, 0, len-1, true);
-	/*for (i = 0; i < len; i++) {
-		std::cout << new_arr[i] << " ";
-	}
-	std::cout << std::endl;*/
 	int sum;
 	int max_freq = 0;
 	int max_lcn = 0;

@@ -10,12 +10,6 @@ int main() {
 	std::cout << "var: " << var << std::endl;
 	std::cout << "rev_it: " << rev_it(var) << std::endl;
 	std::cout << "rev_rec: " << rev_rec(var, var.length()) << std::endl;
-	//int size = sizeof(var);
-	//size = sizeof(std::string);
-	//size = sizeof(char);
-	//size = sizeof(var[0]);
-	//int size = var.length();
-	//std::cout << "Size: " << size << std::endl;
 	return 0;
 }
 

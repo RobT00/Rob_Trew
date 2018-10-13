@@ -93,8 +93,8 @@ void exit() {
 	}
 }
 
-void run(int window_size) {
-	num_windows = window_size;
+void run(int registers) {
+	num_windows = registers;
 	calls = 0;
 	curr_depth = max_depth = overflows = underflows = 0;
 	windows_used = 2;

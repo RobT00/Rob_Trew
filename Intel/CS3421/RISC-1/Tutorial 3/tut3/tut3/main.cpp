@@ -16,16 +16,21 @@ int ackermann(int x, int y) {
 }
 
 int main() {
+	int a;
+	//a = ackermann(3, 6);
+	//std::cout << a << std::endl;
+	volatile int x = 3;
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 	//std::cout << ackermann(3, 6) << std::endl;
-	int a;
-	volatile int x = 3;
 	for (int i = 0; i < N; i++) {
-		a = ackermann(x, 6);
+		a = ackermann(3, 6);
 	}
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
 	float duration = std::chrono::duration_cast<std::chrono::nanoseconds> (t2 - t1).count();
-	duration = duration / N;
-	std::cout << duration << " ns" << std::endl;
+	duration /= N;
+	
+	//std::cout << a << std::endl;
+	std::cout << "Computing ackermann(3, 6) = " << a << std::endl;
+	std::cout << "Took: " << duration << " ns" << std::endl;
 	return 0;
 }

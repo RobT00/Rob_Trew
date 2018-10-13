@@ -69,7 +69,7 @@ int gcd(int a, int b) {
 }
 ; unoptimised
 gcd:		sub		r27, r0, r0, {C}	; sub with flags (b - 0)
-				jne		b_ne_0						; jump is b != 0
+				jne		b_ne_0						; jump if b != 0
 				xor		r0, r0, r0				; nop
 				add		r26, r0, r1				; b == 0 -> set a (r26) to be returned (in r1)
 				ret		r25, 0						; return using return address (stored in r25 by callr)
@@ -87,18 +87,29 @@ b_ne_0:	add		r26, r0, r10			; store a (r26) in r10
 
 ; optimised
 gcd:		sub		r27, r0, r0, {C}	; sub with flags (b - 0)
-				jne		b_ne_0						; jump is b != 0
+				jne		b_ne_0						; jump if b != 0
 				xor		r0, r0, r0				; nop
 				add		r26, r0, r1				; b == 0 -> set a (r26) to be returned (in r1)
 				ret		r25, 0						; return using return address (stored in r25 by callr)
 				xor		r0, r0, r0				; nop
 b_ne_0:	add		r26, r0, r10			; store a (r26) in r10
-				add		r27, r0, r11			; store b (r27) in r11
 				callr	r25, mod					; call mod(a, b) -> store return address in r25
-				xor		r0, r0, r0				; nop
+				add		r27, r0, r11			; store b (r27) in r11
 				add		r27, r0, r10			; store b (r27) in r10
-				add		r1, r0, r11				; store (a % b) (in r1 from mod(a, b) call) in r11
 				callr	r25, gcd					; call gcd(a, a%b) -> store return address in r25
-				xor		r0, r0, r0				; nop
+				add		r1, r0, r11				; store (a % b) (in r1 from mod(a, b) call) in r11
 				ret 	r25, 0						; return result of gcd (r1) using return address (stored in r25 by callr)
 				xor		r0, r0, r0				; nop	
+
+; further optimised
+gcd:		sub		r27, r0, r0, {C}	; sub with flags (b - 0)
+				jeq		b_eq_0						; jump if b == 0
+				add		r26, r0, r1				; set a (r26) as return r1 to be returned (regardless of b == 0)
+				add 	r26, r0, r10			; if here, not returning a, set a to r10
+				callr	r25, mod					; call mod(a, b) -> storing return address in r25
+				add		r27, r0, r11			; set b (r27) to r11 (for use in mod function)
+				add		r27, r0, r10			; b (r27) is now first paramter for next gcd call (r10)
+				callr	r25, gcd					; call gcd(b, a%b), store return address in r25
+				add		r1, r0, r11				; store result of mod(a, b) (which is in r1) in r11 for gcd call
+b_eq_0:	ret 	r25, 0						; return r1, using r25 (return adress from callr)
+				xor		r0, r0, r0				; nop

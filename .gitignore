@@ -1,5 +1,5 @@
-*Intel/CS3421/RISC-1/*/x86/*
-*RISC-1/*/x64/*
-*RISC-1/*/Debug/*
-*RISC-1/*/Release/*
-Intel/CS3421/RISC-1/*/.vs/*
+**Intel/CS3421/RISC-1/**/x86/*
+**/RISC-1/**/x64/*
+**RISC-1/**/Debug/*
+**RISC-1/**/Release/*
+Intel/CS3421/RISC-1/**/.vs/*

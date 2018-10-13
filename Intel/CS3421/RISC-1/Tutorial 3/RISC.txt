@@ -1,6 +1,6 @@
 int g = 4;
 
-add r0, #4, r9					; initialse r9 as global variable
+				add r0, #4, r9					; initialse r9 as global variable
 
 int min(int a, int b, int c) {
 	int v = a;
@@ -13,49 +13,51 @@ int min(int a, int b, int c) {
 	return v;
 }
 ;unoptimised
-min:	add	r26, r0, r1			; r26 is 'a', place as r1 for local use, as v
-		sub	r27, r1, r0, {C}	; sub with flags (b - v)
-		jge	b_ge_v				; jump if b >= v
-		xor	r0, r0, r0			; nop
-		add	r27, r0, r1			; if b < v -> store b as v (in r1)
-b_ge_v:	sub	r28, r1, r0, {C}	; sub with flags (c - v)
-		jge	c_ge_v				; jump if c >= v
-		xor r0, r0, r0			; nop
-		add	r28, r0, r1			; if c < v -> store c as v (in r1)
-c_ge_v:	ret	25, 0				; us pc register to return v (r1) -> callr stores return address is r25
-		xor r0, r0, r0			; nop
+min:		add		r26, r0, r1				; r26 is 'a', place as r1 for local use, as v
+				sub		r27, r1, r0, {C}	; sub with flags (b - v)
+				jge		b_ge_v						; jump if b >= v
+				xor		r0, r0, r0				; nop
+				add		r27, r0, r1				; if b < v -> store b as v (in r1)
+b_ge_v:	sub		r28, r1, r0, {C}	; sub with flags (c - v)
+				jge		c_ge_v						; jump if c >= v
+				xor 	r0, r0, r0				; nop
+				add		r28, r0, r1				; if c < v -> store c as v (in r1)
+c_ge_v:	ret		25, 0							; callr stores return address is r25
+				xor		r0, r0, r0				; nop
+
+Not possible to further optimise by removing nops
+
 
 int p(int i, int j, int, k, int l) {
 	return min(min(g, i, j), k, l);
 }
-Not possible to further optimise by removing nops
-
 ;unoptimised
-p:	add		r9, r0, r10		; set up 1st parameter (g)
-	add		r26, r0, r11	; set up
-	add		r27, r0, r12
-	callr	r25, min
-	xor		r0, r0, r0		; nop
-	add		r1, r0, r10
-	add		r28, r0, r11
-	add		r29, r0, r12	; (l)
-	callr	r25, min
-	xor		r0, r0, r0
-	ret		r25, 0			; return result in r1
-	xor		r0, r0, r0		; nop
+p:			add		r9, r0, r10				; set up 1st parameter (g) -> global r9 stored in r10
+				add		r26, r0, r11			; set up 2nd parameter (i) -> first input (r26) store in r11
+				add		r27, r0, r12			; set up 3rd parameter (j) -> second input (r27) store in r12
+				callr	r25, min					; call min function (r10, r11, r12) -> storing return address in r25
+				xor		r0, r0, r0				; nop
+				add		r1, r0, r10				; store result of first min call (r1) in r10
+				add		r28, r0, r11			;	set up 4th parameter (k) -> third input (r28) store in r11
+				add		r29, r0, r12			; set up 5th parameter (l) -> fourth input (r29) store in r12
+				callr	r25, min					; call min function (r10, r11, r12) -> storing return address in r25
+				xor		r0, r0, r0				; nop
+				ret		r25, 0						; return result in r1 -> using r25 return address (from callr)
+				xor		r0, r0, r0				; nop
 	
 ;optimised
-p:	add		r9, r0, r10		; set up 1st parameter (g)
-	add		r26, r0, r11	; set up
-	callr	r25, min
-	add		r27, r0, r12
-	add		r1, r0, r10
-	add		r28, r0, r11
-	callr	r25, min
-	add		r29, r0, r12	; (l)
-	ret		r25, 0			; return result in r1
-	xor		r0, r0, r0		; nop	
+p:			add		r9, r0, r10				; set up 1st parameter (g) -> global r9 stored in r10
+				add		r26, r0, r11			; set up 2nd parameter (i) -> first input (r26) store in r11
+				callr	r25, min					; call min function (r10, r11, r12) -> storing return address in r25
+				add		r27, r0, r12			; set up 3rd parameter (j) -> second input (r27) store in r12
+				add		r1, r0, r10				; store result of first min call (r1) in r10
+				add		r28, r0, r11			; set up 4th parameter (k) -> third input (r28) store in r11
+				callr	r25, min					; call min function (r10, r11, r12) -> storing return address in r25
+				add		r29, r0, r12			; set up 5th parameter (l) -> fourth input (r29) store in r12
+				ret		r25, 0						; return result in r1 -> using r25 return address (from callr)
+				xor		r0, r0, r0				; nop	
 
+2 nops can be removed by calculating on of the function arguments in the instruction directly after the call, leaving no wated instructions
 	
 int gcd(int a, int b) {
 	if (b == 0) {
@@ -65,28 +67,38 @@ int gcd(int a, int b) {
 		return gcd(b, a % b);
 	}
 }
-;unoptimised
-p:	add		r9, r0, r10		; set up 1st parameter (g)
-	add		r26, r0, r11	; set up
-	add		r27, r0, r12
-	callr	r25, min
-	xor		r0, r0, r0		; nop
-	add		r1, r0, r10
-	add		r28, r0, r11
-	add		r29, r0, r12	; (l)
-	callr	r25, min
-	xor		r0, r0, r0
-	ret		r25, 0			; return result in r1
-	xor		r0, r0, r0		; nop
-	
-;optimised
-p:	add		r9, r0, r10		; set up 1st parameter (g)
-	add		r26, r0, r11	; set up
-	callr	r25, min
-	add		r27, r0, r12
-	add		r1, r0, r10
-	add		r28, r0, r11
-	callr	r25, min
-	add		r29, r0, r12	; (l)
-	ret		r25, 0			; return result in r1
-	xor		r0, r0, r0		; nop	
+; unoptimised
+gcd:		sub		r27, r0, r0, {C}	; sub with flags (b - 0)
+				jne		b_ne_0						; jump is b != 0
+				xor		r0, r0, r0				; nop
+				add		r26, r0, r1				; b == 0 -> set a (r26) to be returned (in r1)
+				ret		r25, 0						; return using return address (stored in r25 by callr)
+				xor		r0, r0, r0				; nop
+b_ne_0:	add		r26, r0, r10			; store a (r26) in r10
+				add		r27, r0, r11			; store b (r27) in r11
+				callr	r25, mod					; call mod(a, b) -> store return address in r25
+				xor		r0, r0, r0				; nop
+				add		r27, r0, r10			; store b (r27) in r10
+				add		r1, r0, r11				; store (a % b) (in r1 from mod(a, b) call) in r11
+				callr	r25, gcd					; call gcd(a, a%b) -> store return address in r25
+				xor		r0, r0, r0				; nop
+				ret 	r25, 0						; return result of gcd (r1) using return address (stored in r25 by callr)
+				xor		r0, r0, r0				; nop
+
+; optimised
+gcd:		sub		r27, r0, r0, {C}	; sub with flags (b - 0)
+				jne		b_ne_0						; jump is b != 0
+				xor		r0, r0, r0				; nop
+				add		r26, r0, r1				; b == 0 -> set a (r26) to be returned (in r1)
+				ret		r25, 0						; return using return address (stored in r25 by callr)
+				xor		r0, r0, r0				; nop
+b_ne_0:	add		r26, r0, r10			; store a (r26) in r10
+				add		r27, r0, r11			; store b (r27) in r11
+				callr	r25, mod					; call mod(a, b) -> store return address in r25
+				xor		r0, r0, r0				; nop
+				add		r27, r0, r10			; store b (r27) in r10
+				add		r1, r0, r11				; store (a % b) (in r1 from mod(a, b) call) in r11
+				callr	r25, gcd					; call gcd(a, a%b) -> store return address in r25
+				xor		r0, r0, r0				; nop
+				ret 	r25, 0						; return result of gcd (r1) using return address (stored in r25 by callr)
+				xor		r0, r0, r0				; nop	

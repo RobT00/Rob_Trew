@@ -1,13 +1,13 @@
 #include<iostream>
 #include<chrono>
 
-#define N 1000000
+#define N 100000
 
 int ackermann(int, int);
 void enter();
 void exit();
 int ackermann_mod(int, int);
-void run(int);
+void ackermann_metrics(int);
 
 //Globals
 int num_windows;
@@ -19,25 +19,23 @@ int underflows;
 int windows_used;
 
 int main() {
-	run(6);
-	run(8);
-	run(16);
+	ackermann_metrics(6);
+	ackermann_metrics(8);
+	ackermann_metrics(16);
+	
 	int a;
-	//a = ackermann(3, 6);
-	//std::cout << a << std::endl;
-	volatile int x = 3;
+	volatile int x = 3; // Using volatile int to defeat compiler optimisation in for loop
+	volatile int y = 6;
 	std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
-	//std::cout << ackermann(3, 6) << std::endl;
 	for (int i = 0; i < N; i++) {
-		a = ackermann(3, 6);
+		a = ackermann(x, y);
 	}
 	std::chrono::high_resolution_clock::time_point t2 = std::chrono::high_resolution_clock::now();
-	float duration = std::chrono::duration_cast<std::chrono::nanoseconds> (t2 - t1).count();
+	std::chrono::duration<double, std::milli> duration = t2 - t1;
 	duration /= N;
 	
-	//std::cout << a << std::endl;
 	std::cout << "Computing ackermann(3, 6) = " << a << std::endl;
-	std::cout << "Took: " << duration << " ns" << std::endl;
+	std::cout << "Average execution time: " << duration.count() << " ms" << std::endl;
 	return 0;
 }
 
@@ -75,7 +73,7 @@ void enter() {
 	if (curr_depth > max_depth) {
 		max_depth = curr_depth;
 	}
-	if (windows_used == num_windows) {
+	if ((windows_used + 1) % num_windows == 0) { // CWP+1=SWP -> 0 defined as 1st window on stack (SWP) 
 		overflows++;
 	}
 	else {
@@ -85,7 +83,7 @@ void enter() {
 
 void exit() {
 	curr_depth--;
-	if (windows_used == 2) {
+	if ((windows_used - 1) % num_windows == 0) { // CWP-1=SWP -> 0 defined as 1st window on stack (SWP)
 		underflows++;
 	}
 	else {
@@ -93,16 +91,18 @@ void exit() {
 	}
 }
 
-void run(int registers) {
+void ackermann_metrics(int registers) {
 	num_windows = registers;
 	calls = 0;
 	curr_depth = max_depth = overflows = underflows = 0;
-	windows_used = 2;
+	windows_used = 1; // window for main
 	int v = ackermann_mod(3, 6);
-	std::cout << "ackermann_mod(3, 6) = " << v << ", calls = " << calls << ", max depth = " << max_depth << std::endl
-		<< "window size = " << num_windows << ", overflows = " << overflows << ", underflows = " << underflows << std::endl;
-	if (overflows != underflows) {
-		std::cout << "ERROR:\nOverflows = " << overflows << "\nunderflows = " << underflows << "\nThese should be equal\n";
-	}
+	std::cout << "ackermann_mod(3, 6) = " << v << "\nCalls = " << calls << 
+		", Max depth = " << max_depth << std::endl
+		<< "Register Set = " << num_windows << 
+		", Overflows = " << overflows << ", Underflows = " << underflows << std::endl;
 	std::printf("\n");
 }
+
+
+

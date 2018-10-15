@@ -1,0 +1,7 @@
+﻿  main.cpp
+c:\users\trewm\desktop\git\rob_trew\mc\strings\strings\main.cpp(12): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\users\trewm\desktop\git\rob_trew\mc\strings\strings\main.cpp(19): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  All 94 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Strings.vcxproj -> C:\Users\trewm\Desktop\Git\Rob_Trew\MC\Strings\x64\Release\Strings.exe

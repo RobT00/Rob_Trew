@@ -7,9 +7,9 @@ void quick_sort(int arr[], int lo, int hi, bool rev=false);
 //int hash(int x, int l);
 
 int main() {
-	int tst[] = { -1, -3, 0, 34, 5, 5, 5, 5, 6 };
+	//int tst[] = { -1, -3, 0, 34, 5, 5, 5, 5, 6 };
 	//int tst[] = { 0, 0, 0 };
-	//int tst[] = { 0, 1, 2, 3 };
+	int tst[] = { 0, 1, 2, 3 };
 	std::cout << "Most Frequent integer: " << freq_int(tst, sizeof(tst) / sizeof(int)) << std::endl;
 	return 0;
 }

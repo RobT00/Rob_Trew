@@ -1,4 +1,5 @@
 //Robert Trew - 15315527
+
 //Includes
 #include <fstream>
 #include <iostream>
@@ -10,42 +11,43 @@
 using namespace std;
 
 //Globals
-int l = 16;
-int k = 8;
-int n = 4;
-
-//Function Definitions
-string hit_or_miss(vector<int> &, int);
+int L = 16;
+int K = 8;
+int N = 8;
+int BASE = 16; //Base 16 is Hex
 
 //Classes
 class Cache {
 public:
-	int l, k, n;
+	int l, k, n, base;
 	int misses, hits;
+	//2D vector to contain sets and tags
 	vector<vector<int>> addr_num;
 
-	Cache(int _l, int _k, int _n) {
+	Cache(int _l, int _k, int _n, int _base) { //Constructor
 		l = _l;
 		k = _k;
 		n = _n;
+		base = _base;
+		//Resize the vector for appropriate cache size, tags are set to -1 as a default value (as using unsigned)
 		addr_num.resize(n, vector<int>(k, -1));
 		misses = 0;
 		hits = 0;
 	}
 
-	~Cache() {
-		cout << "Destructor called" << endl;
-		//free(&addr_num);
-	}
+	~Cache() {} //Destructor
 
-	int offset_fn(string line, size_t *ptr = nullptr, int base = 16) {
-		return (str_to_val(line, ptr, base) & (l - 1));
+	//Calculate the offset (not actually used)
+	int offset_fn(string line, size_t *ptr = nullptr) {
+		return (str_to_val(line, ptr) & (l - 1));
 	}
-	int set_num_fn(string line, size_t *ptr = nullptr, int base = 16) {
-		return ((str_to_val(line, ptr, base) >> int(log2(l))) & (int(pow(2, log2(n)) - 1)));
+	//Calculate the set number (for 1st dimenesion of vector)
+	int set_num_fn(string line, size_t *ptr = nullptr) {
+		return ((str_to_val(line, ptr) >> int(log2(l))) & (int(pow(2, log2(n)) - 1)));
 	}
-	int tag_fn(string line, size_t *ptr = nullptr, int base = 16) {
-		return (str_to_val(line, ptr, base) >> (int(log2(l)) + int(log2(n))));
+	//Calculate the tag (for 2nd dimension of vector)
+	int tag_fn(string line, size_t *ptr = nullptr) {
+		return (str_to_val(line, ptr) >> (int(log2(l)) + int(log2(n))));
 	}
 
 	//Function to return whether cache hit or miss and modify vector as necessary
@@ -74,7 +76,8 @@ public:
 	}
 
 private:
-	unsigned int str_to_val(string line, size_t *ptr = nullptr, int base = 16) {
+	//Function to return unsigned integer value for string passed in (default arguments set for hex addresses)
+	unsigned int str_to_val(string line, size_t *ptr = nullptr) {
 		return stoul(line, ptr, base);
 	}
 };
@@ -96,63 +99,22 @@ int main()
 		return -1;
 	}
 
-	cout << "Cache size = " << (l*k*n) << " bytes\n";
-	answer << "Cache size = " << (l*k*n) << " bytes\n";
-	cout << "L = " << l << "\tK = " << k << "\tN = " << n << endl;
-	answer << "L = " << l << "\tK = " << k << "\tN = " << n << endl;
+	cout << "Cache size = " << (L*K*N) << " bytes\n";
+	answer << "Cache size = " << (L*K*N) << " bytes\n";
+	cout << "L = " << L << "\tK = " << K << "\tN = " << N << endl;
+	answer << "L = " << L << "\tK = " << K << "\tN = " << N << endl;
 	cout << "\nAddress\t|\tSet\t|\tHit/Miss\n";
 	answer << "\nAddress\t|\tSet\t|\tHit/Miss\n";
 	cout << string(40, '-') << endl;
 	answer << string(40, '-') << endl;
 
-	Cache cache_obj = Cache(l, k, n);
-	
-	/*//2D vector to contain sets and tags
-	vector<vector<int>> addr_num;
-	//Resize the vector for appropriate cache size, tags are set to -1 as a default value
-	addr_num.resize(n, vector<int>(k, -1));
-	
-	string line;
-	string res;
-	
-	int hit_count = 0;
-	int miss_count = 0;
-
-	//Reading addresses from the csv
-	while (getline(addrs, line)) {
-		cout << line << "\t|\t";
-		answer << line << "\t|\t";
-		unsigned int a = stoul(line, nullptr, 16); //Convert the hex address to an unsigned integer
-		int off = a & (l - 1); //Calculate the offset (not actually needed)
-		int set_num = (a >> int(log2(l))) & (int(pow(2, log2(n)) - 1)); //Calculate the set number (for 1st dimenesion of vector)
-		int tag = (a >> (int(log2(l)) + int(log2(n)))); //Calculate the tag (for 2nd dimension of vector)
-		cout << set_num << "\t|\t";
-		answer << set_num << "\t|\t";
-		res = hit_or_miss(addr_num[set_num], tag);
-		if (res == "Miss") { miss_count++; }
-		else { hit_count++; }
-		cout << res << endl;
-		answer << res << endl;
-	}
-
-	cout << string(40, '-') << endl;
-	answer << string(40, '-') << endl;
-	//Print the hit/miss counts
-	cout << "\n\nHit Count: " << hit_count;
-	answer << "\n\nHit Count: " << hit_count;
-	cout << "\nMiss Count: " << miss_count << endl;
-	answer << "\nMiss Count: " << miss_count << endl;
-	cout << "\n";*/
+	Cache cache_obj = Cache(L, K, N, BASE); //Make generalised cache object
 	
 	string line;
 	string res;
 	while (getline(addrs, line)) {
 		cout << line << "\t|\t";
 		answer << line << "\t|\t";
-		//unsigned int a = stoul(line, nullptr, 16); //Convert the hex address to an unsigned integer
-		//int off = a & (l - 1); //Calculate the offset (not actually needed)
-		//int set_num = (a >> int(log2(l))) & (int(pow(2, log2(n)) - 1)); //Calculate the set number (for 1st dimenesion of vector)
-		//int tag = (a >> (int(log2(l)) + int(log2(n)))); //Calculate the tag (for 2nd dimension of vector)
 		int set_num = cache_obj.set_num_fn(line);
 		cout << set_num << "\t|\t";
 		answer << set_num << "\t|\t";
@@ -160,6 +122,9 @@ int main()
 		cout << res << endl;
 		answer << res << endl;
 	}
+
+	cout << string(40, '-') << endl;
+	answer << string(40, '-') << endl;
 
 	//Print the hit/miss counts
 	cout << "\n\nHit Count: " << cache_obj.hits;
@@ -171,27 +136,4 @@ int main()
 	answer.close();
 	addrs.close();
 	return 0;
-}
-
-//Function to return whether cache hit or miss and modify vector as necessary
-string hit_or_miss(vector<int> &v, int tag) {
-	string res = "Miss";
-	for (int i = 0; i < k; i++) {
-		if (v[i] == -1) { break; } //-1 is the default value for tags, from the resize function
-		if (v[i] == tag) {
-			res = "Hit"; //A cache hit
-			if (i != 0 && k > 1) { //If not the first element and have >1 tag in the set
-				v.insert(v.begin(), tag); //Insert at the top the tag (most recently used)
-				auto it = v.begin(); //Make iterator to find place in vector
-				advance(it, i+1); //Move the iterator to the old entry of the tag
-				v.erase(it); //Remove the previous tag (restoring the length of the vector)
-			}
-			break;
-		}
-	}
-	if (res == "Miss") { //A hit has not been found
-		v.insert(v.begin(), tag); //Add the tag to the vector (as most recently used)
-		v.erase(v.end() - 1); //Remove the last tag (least recently used) restoring the vector length
-	}
-	return res;
 }

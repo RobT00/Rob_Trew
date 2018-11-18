@@ -1,5 +1,5 @@
-Cache size = 512 bytes
-L = 16	K = 8	N = 4
+Cache size = 1024 bytes
+L = 16	K = 8	N = 8
 
 Address	|	Set	|	Hit/Miss
 ----------------------------------------
@@ -7,8 +7,8 @@ Address	|	Set	|	Hit/Miss
 0x0004	|	0	|	Hit
 0x000C	|	0	|	Hit
 0x2200	|	0	|	Miss
-0x00D0	|	1	|	Miss
-0x00E0	|	2	|	Miss
+0x00D0	|	5	|	Miss
+0x00E0	|	6	|	Miss
 0x1130	|	3	|	Miss
 0x0028	|	2	|	Miss
 0x113C	|	3	|	Hit
@@ -16,7 +16,7 @@ Address	|	Set	|	Hit/Miss
 0x0010	|	1	|	Miss
 0x0020	|	2	|	Hit
 0x0004	|	0	|	Hit
-0x0040	|	0	|	Miss
+0x0040	|	4	|	Miss
 0x2208	|	0	|	Hit
 0x0008	|	0	|	Hit
 0x00A0	|	2	|	Miss
@@ -30,11 +30,12 @@ Address	|	Set	|	Hit/Miss
 0x00B0	|	3	|	Miss
 0x1100	|	0	|	Hit
 0x0028	|	2	|	Hit
-0x0064	|	2	|	Miss
-0x0070	|	3	|	Miss
-0x00D0	|	1	|	Hit
+0x0064	|	6	|	Miss
+0x0070	|	7	|	Miss
+0x00D0	|	5	|	Hit
 0x0008	|	0	|	Hit
 0x3394	|	1	|	Hit
+----------------------------------------
 
 
 Hit Count: 17

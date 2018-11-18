@@ -1,5 +1,5 @@
-Cache size = 1024 bytes
-L = 16	K = 8	N = 8
+Cache size = 128 bytes
+L = 16	K = 4	N = 2
 
 Address	|	Set	|	Hit/Miss
 ----------------------------------------
@@ -7,36 +7,36 @@ Address	|	Set	|	Hit/Miss
 0x0004	|	0	|	Hit
 0x000C	|	0	|	Hit
 0x2200	|	0	|	Miss
-0x00D0	|	5	|	Miss
-0x00E0	|	6	|	Miss
-0x1130	|	3	|	Miss
-0x0028	|	2	|	Miss
-0x113C	|	3	|	Hit
+0x00D0	|	1	|	Miss
+0x00E0	|	0	|	Miss
+0x1130	|	1	|	Miss
+0x0028	|	0	|	Miss
+0x113C	|	1	|	Hit
 0x2204	|	0	|	Hit
 0x0010	|	1	|	Miss
-0x0020	|	2	|	Hit
+0x0020	|	0	|	Hit
 0x0004	|	0	|	Hit
-0x0040	|	4	|	Miss
+0x0040	|	0	|	Miss
 0x2208	|	0	|	Hit
 0x0008	|	0	|	Hit
-0x00A0	|	2	|	Miss
+0x00A0	|	0	|	Miss
 0x0004	|	0	|	Hit
 0x1104	|	0	|	Miss
-0x0028	|	2	|	Hit
+0x0028	|	0	|	Miss
 0x000C	|	0	|	Hit
 0x0084	|	0	|	Miss
 0x000C	|	0	|	Hit
 0x3390	|	1	|	Miss
-0x00B0	|	3	|	Miss
+0x00B0	|	1	|	Miss
 0x1100	|	0	|	Hit
-0x0028	|	2	|	Hit
-0x0064	|	6	|	Miss
-0x0070	|	7	|	Miss
-0x00D0	|	5	|	Hit
+0x0028	|	0	|	Hit
+0x0064	|	0	|	Miss
+0x0070	|	1	|	Miss
+0x00D0	|	1	|	Miss
 0x0008	|	0	|	Hit
 0x3394	|	1	|	Hit
 ----------------------------------------
 
 
-Hit Count: 17
-Miss Count: 15
+Hit Count: 15
+Miss Count: 17

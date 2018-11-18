@@ -12,8 +12,8 @@ using namespace std;
 
 //Globals
 int L = 16;
-int K = 8;
-int N = 8;
+int K = 4;
+int N = 2;
 int BASE = 16; //Base 16 is Hex
 
 //Classes

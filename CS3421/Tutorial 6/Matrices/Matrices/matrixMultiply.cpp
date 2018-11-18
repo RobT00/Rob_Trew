@@ -101,13 +101,22 @@ int main(int argc, char **argv) {
 
         // matB_transposed = tranpose matB
         // ADD YOUR CODE HERE
+		for (UINT row = 0; row < N; row++) {
+			for (UINT col = 0; col < N; col++) {
+				matB_transposed[col][row] = matB[row][col];
+			}
+		}
 
         // matD = matA*matB_transposed
         // ADD YOUR CODE HERE
-
-
-
-
+		for (UINT row = 0; row < N; row++) {
+			for (UINT col = 0; col < N; col++) {
+				UINT sum = 0;
+				for (UINT k = 0; k < N; k++)
+					sum += matA[row][k] * matB_transposed[col][k];
+				matD[row][col] = sum;
+			}
+		}
 
         cnt1++;
 

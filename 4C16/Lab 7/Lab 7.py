@@ -102,7 +102,7 @@ def sample(preds, temperature=1.0):
 # training must match that used for assessment.
 
 desired_num_chars = 480139  # Max: 600893
-#desired_num_chars = 600*1000  # Max: 600893
+# desired_num_chars = 600*1000  # Max: 600893
 
 random.seed(43)  # Fix random seed for repeatable results.
 
